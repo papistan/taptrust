@@ -40,10 +40,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      coinsId: {
+      tokenId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Coins',
+          model: 'Tokens',
           key: 'id',
         },
       },

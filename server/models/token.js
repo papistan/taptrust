@@ -1,6 +1,6 @@
 //'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Coins = sequelize.define('Coins', {
+  const Tokens = sequelize.define('Tokens', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,11 +19,11 @@ module.exports = (sequelize, DataTypes) => {
   },
 );
    
-  Coins.associate = (models) => {
-    Coins.hasMany(models.Reviews, {
-      foreignKey: 'coinsId',
+  Tokens.associate = (models) => {
+    Tokens.hasMany(models.Reviews, {
+      foreignKey: 'tokenId',
     });
   };
   
-  return Coins;
+  return Tokens;
 };

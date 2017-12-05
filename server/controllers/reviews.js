@@ -1,5 +1,5 @@
 const Reviews = require('../models').Reviews;
-const Coins = require('../models').Coins
+const Tokens = require('../models').Tokens;
 
 //calculates Review's overall_score from other score values
 const Overall = (data) => {
@@ -8,10 +8,10 @@ const Overall = (data) => {
   return Math.round(avg);
 };
 
-//WORKING ON GETTING COINS OVERALL SCORES TO BE AVERAGE OF ALL REVIEWS
-/*const coinsOverall = (data) => {
+//WORKING ON GETTING TOKEN OVERALL SCORES TO BE AVERAGE OF ALL REVIEWS
+/*const tokenOverall = (data) => {
   return Reviews
-  .sum('score_transparency', { where: { coinsId: data.coinsId }})
+  .sum('score_transparency', { where: { tokenId: data.tokenId }})
   .then(sum => {
   return sum;
   })
@@ -31,14 +31,14 @@ module.exports = {
         score_friendly: req.body.score_friendly,
         score_legal: req.body.score_legal,
         score_usability: req.body.score_usability,
-        coinsId: req.params.coinsId,
+        tokenId: req.params.tokenId,
       })
-      //then update coin with new scores
+      //then update token with new scores
         .then(reviews => {
-          return Coins
-          .findById(req.params.coinsId)
-          .then(coin => {
-            return coin
+          return Tokens
+          .findById(req.params.tokenId)
+          .then(tokens => {
+            return tokens
             .update({
               score_overall: reviews.score_overall,
               score_transparency: reviews.score_transparency,
@@ -47,7 +47,7 @@ module.exports = {
               score_legal: reviews.score_legal,
               score_usability: reviews.score_usability,
             })
-            .then(coin => res.status(200).send(coin))
+            .then(tokens => res.status(200).send(tokens))
             .catch(error => res.status(400).send(error));
           })
           .catch(error => res.status(400).send(error));
@@ -59,25 +59,25 @@ module.exports = {
   return Reviews
     .findAll({
       where: {
-        coinsId: req.params.coinsId,
+        tokenId: req.params.tokenId,
       }
     })
-    .then(reviews => res.status(200).send(reviews))
+    .then(review => res.status(200).send(review))
     .catch(error => res.status(400).send(error));
   },
 
   retrieve(req, res) {
   return Reviews
-    .findById(req.params.reviewsId)
-    .then(reviews => res.status(200).send(reviews))
+    .findById(req.params.reviewId)
+    .then(review => res.status(200).send(review))
     .catch(error => res.status(400).send(error));
   },
 
-  update(req, res) {
+  update(req, res) {s
   return Reviews
-    .findById(req.params.reviewsId)
-    .then(reviews => {
-      if (!reviews) {
+    .findById(req.params.reviewId)
+    .then(review => {
+      if (!review) {
         return res.status(404).send({
           message: 'Review Not Found',
         });
@@ -89,7 +89,7 @@ module.exports = {
         .then(updatedReview => {
             return updatedReview
               //update overall_score based on new values
-              .update({ score_overall: Overall(reviews) })
+              .update({ score_overall: Overall(review) })
               //send updated db with new overall_score
               .then(sendUpdate => res.status(200).send(sendUpdate))
               .catch(error => res.status(400).send(error));
@@ -103,18 +103,18 @@ module.exports = {
     return Reviews
       .find({
           where: {
-            id: req.params.reviewsId,
-            coinsId: req.params.coinsId,
+            id: req.params.reviewId,
+            tokenId: req.params.tokenId,
           },
         })
-      .then(reviews => {
-        if (!reviews) {
+      .then(review => {
+        if (!review) {
           return res.status(404).send({
             message: 'Review Not Found',
           });
         }
 
-        return reviews
+        return review
           .destroy()
           .then(() => res.status(204).send())
           .catch(error => res.status(400).send(error));

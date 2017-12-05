@@ -1,9 +1,9 @@
-const Coins = require('../models').Coins;
+const Tokens = require('../models').Tokens;
 const Reviews = require('../models').Reviews;
 
 module.exports = {
   create(req, res) {
-    return Coins
+    return Tokens
       .create({
         name: req.body.name,
         category: req.body.category,
@@ -12,72 +12,72 @@ module.exports = {
         website: req.body.website,
         founders: req.body.founders,
       })
-      .then(coins => res.status(201).send(coins))
+      .then(token => res.status(201).send(token))
       .catch(error => res.status(400).send(error));
   },
 
   list(req, res) {
-  return Coins
+  return Tokens
     .findAll({
       include: [{
         model: Reviews,
       }],
     })
-    .then(coins => res.status(200).send(coins))
+    .then(token => res.status(200).send(token))
     .catch(error => res.status(400).send(error));
   },
 
   retrieve(req, res) {
-  return Coins
-    .findById(req.params.coinsId, {
+  return Token
+    .findById(req.params.tokenId, {
       include: [{
         model: Reviews,
       }],
     })
-    .then(coins => {
-      if (!coins) {
+    .then(token => {
+      if (!token) {
         return res.status(404).send({
-          message: 'Coin Not Found',
+          message: 'Token Not Found',
         });
       }
-      return res.status(200).send(coins);
+      return res.status(200).send(token);
     })
     .catch(error => res.status(400).send(error));
   },
 
   update(req, res) {
-  return Coins
-    .findById(req.params.coinsId, {
+  return Tokens
+    .findById(req.params.tokenId, {
       include: [{
         model: Reviews,
       }],
     })
-    .then(coins => {
-      if (!coins) {
+    .then(token => {
+      if (!token) {
         return res.status(404).send({
-          message: 'Coin Not Found',
+          message: 'Token Not Found',
         });
       }
-      return coins
+      return token
         .update(req.body, { 
           fields: Object.keys(req.body),
         })
-        .then(() => res.status(200).send(coins))  // Send back the updated values.
+        .then(() => res.status(200).send(token))  // Send back the updated values.
         .catch((error) => res.status(400).send(error));
     })
     .catch((error) => res.status(400).send(error));
   },
 
   destroy(req, res) {
-  return Coins
-    .findById(req.params.coinsId)
-    .then(coins => {
-      if (!coins) {
+  return Tokens
+    .findById(req.params.tokenId)
+    .then(token => {
+      if (!token) {
         return res.status(400).send({
-          message: 'Coin Not Found',
+          message: 'Token Not Found',
         });
       }
-      return coins
+      return token
         .destroy()
         .then(() => res.status(204).send())
         .catch(error => res.status(400).send(error));

@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
 }); 
 
       Reviews.associate = (models) => {
-        Reviews.belongsTo(models.Coins, {
-        foreignKey: 'coinsId',
+        Reviews.belongsTo(models.Tokens, {
+        foreignKey: 'tokenId',
     });
   };
 

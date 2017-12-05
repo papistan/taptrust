@@ -11,27 +11,27 @@ Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DEL
 
 POST:
 
-* `/api/coins` to create a new Coin
-* `/api/coins/:coinsId/reviews` to create a new review for a coin (:coinsId is the id of the coin you want to add a review of)
+* `/api/token` to create a new Token
+* `/api/token/:tokenId/review` to create a new review for a coin (:tokenId is the id of the token you want to add a review of)
 
 GET:
 
-* `/api/coins` to GET all coins, and their reviews
-* `/api/coins/:coinsId` to GET a specific coin, and it's reviews
-* `/api/coins/:coinsId/reviews` to GET all of a specific coins reviews
-* `/api/reviews/:reviewsId` to GET a specific review
+* `/api/token` to GET all tokens and their reviews
+* `/api/token/:tokenId` to GET a specific coin, and it's reviews
+* `/api/token/:tokenId/review` to GET all of a specific token's reviews
+* `/api/review/:reviewId` to GET a specific review
 
 PUT:
 
-* `/api/coins/:coinsId` to update a specific coin
-* `/api/reviews/:reviewsId` to update a specific review
+* `/api/token/:tokenId` to update a specific coin
+* `/api/review/:reviewId` to update a specific review
 
 DELETE:
 
-* `/api/coins/:coinsId` to delete a coin
-* `/api/coins/:coinsId/reviews/:reviewsId` to delete a review
+* `/api/token/:tokenId` to delete a coin
+* `/api/token/:tokenId/review/:reviewId` to delete a review
 
-As of first commit, parameters for Coins are:
+As of first commit, parameters for Token are:
 
 * name
 * category
@@ -49,9 +49,9 @@ As of first commit, parameters for Coins are:
 * score_legal
 * score_usability
 
-NOTE: Coins' score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
+NOTE: Token's score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
 
-Parameters for Reviews are:
+Parameters for Review are:
 
 * name
 * review

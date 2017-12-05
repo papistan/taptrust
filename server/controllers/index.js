@@ -1,7 +1,7 @@
-const coins = require('./coins');
-const reviews = require('./reviews')
+const Tokens = require('./tokens');
+const Reviews = require('./reviews');
 
 module.exports = {
-  coins,
-  reviews
+  Tokens,
+  Reviews
 };

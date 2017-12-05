@@ -1,23 +1,22 @@
-const coinsController = require('../controllers').coins;
-const reviewsController = require('../controllers').reviews;
-const path = require('path');
+const tokensController = require('../controllers').Tokens;
+const reviewsController = require('../controllers').Reviews;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Taptrust API',
   }));
 
-  //Coins
-  app.post('/api/coins', coinsController.create);
-  app.get('/api/coins', coinsController.list);
-  app.get('/api/coins/:coinsId', coinsController.retrieve);
-  app.put('/api/coins/:coinsId', coinsController.update);
-  app.delete('/api/coins/:coinsId', coinsController.destroy);
+  //Token
+  app.post('/api/tokens', tokensController.create);
+  app.get('/api/tokens', tokensController.list);
+  app.get('/api/tokens/:tokenId', tokensController.retrieve);
+  app.put('/api/tokens/:tokenId', tokensController.update);
+  app.delete('/api/tokens/:tokenId', tokensController.destroy);
 
-  //Reviews
-  app.post('/api/coins/:coinsId/reviews', reviewsController.create);
-  app.get('/api/coins/:coinsId/reviews', reviewsController.list);
-  app.put('/api/reviews/:reviewsId', reviewsController.update);
-  app.get('/api/reviews/:reviewsId', reviewsController.retrieve);
-  app.delete('/api/coins/:coinsId/reviews/:reviewsId', reviewsController.destroy);
+  //Review
+  app.post('/api/tokens/:tokenId/reviews', reviewsController.create);
+  app.get('/api/tokens/:tokenId/reviews', reviewsController.list);
+  app.put('/api/reviews/:reviewId', reviewsController.update);
+  app.get('/api/reviews/:reviewId', reviewsController.retrieve);
+  app.delete('/api/tokens/:tokenId/reviews/:reviewId', reviewsController.destroy);
 }
