@@ -11,27 +11,27 @@ Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DEL
 
 POST:
 
-* `/api/token` to create a new Token
-* `/api/token/:tokenId/review` to create a new review for a coin (:tokenId is the id of the token you want to add a review of)
+* `/api/tokens` to create a new Token
+* `/api/tokens/:tokenId/reviews` to create a new review for a token (:tokenId is the id of the token you want to add a review of)
 
 GET:
 
-* `/api/token` to GET all tokens and their reviews
-* `/api/token/:tokenId` to GET a specific coin, and it's reviews
-* `/api/token/:tokenId/review` to GET all of a specific token's reviews
-* `/api/review/:reviewId` to GET a specific review
+* `/api/tokens` to GET all tokens and their reviews
+* `/api/tokens/:tokenId` to GET a specific coin, and it's reviews
+* `/api/tokens/:tokenId/review` to GET all of a specific token's reviews
+* `/api/reviews/:reviewId` to GET a specific review
 
 PUT:
 
-* `/api/token/:tokenId` to update a specific coin
-* `/api/review/:reviewId` to update a specific review
+* `/api/tokens/:tokenId` to update a specific coin
+* `/api/reviews/:reviewId` to update a specific review
 
 DELETE:
 
-* `/api/token/:tokenId` to delete a coin
-* `/api/token/:tokenId/review/:reviewId` to delete a review
+* `/api/tokens/:tokenId` to delete a coin
+* `/api/tokens/:tokenId/reviews/:reviewId` to delete a review
 
-As of first commit, parameters for Token are:
+As of first commit, parameters for Tokens are:
 
 * name
 * category
@@ -51,7 +51,7 @@ As of first commit, parameters for Token are:
 
 NOTE: Token's score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
 
-Parameters for Review are:
+Parameters for Reviews are:
 
 * name
 * review
