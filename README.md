@@ -6,6 +6,7 @@ For development:
 2. `npm install` to install dependencies.
 3. Run `sequelize db:migrate`.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
+5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
 
 Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DELETE` at these routes:
 
@@ -17,7 +18,7 @@ POST:
 GET:
 
 * `/api/tokens` to GET all tokens and their reviews
-* `/api/tokens/:tokenId` to GET a specific coin, and it's reviews
+* `/api/tokens/:name` to GET a specific coin, and it's reviews (Will add separate GET for `api/tokens/:tokenId` if needed)
 * `/api/tokens/:tokenId/review` to GET all of a specific token's reviews
 * `/api/reviews/:reviewId` to GET a specific review
 
@@ -65,4 +66,3 @@ Parameters for Reviews are:
 NOTE: score_overall is an average of the other scores. This is working as of first commit.
 
 
-Front-end currently in development.

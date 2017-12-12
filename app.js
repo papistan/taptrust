@@ -2,9 +2,13 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 // Set up the express app
 const app = express();
+
+//set up CORS for development REMOVE LATER?
+app.use(cors());
 
 // Log requests to the console.
 app.use(logger('dev'));

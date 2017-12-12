@@ -27,11 +27,15 @@ module.exports = {
     .catch(error => res.status(400).send(error));
   },
 
+  //CHANGED TO BE FOUND BY NAME INSTEAD. KEEP???
   retrieve(req, res) {
-  return Token
-    .findById(req.params.tokenId, {
-      include: [{
-        model: Reviews,
+  return Tokens
+    .find({
+          where: {
+            name: req.params.name,
+          },
+          include: [{
+            model: Reviews,
       }],
     })
     .then(token => {

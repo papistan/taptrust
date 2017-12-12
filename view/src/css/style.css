@@ -1,0 +1,37 @@
+body {
+	font-size: 16px;
+	padding-top: 80px;
+}
+
+h2 {
+	color: black;
+	font-weight: bold;
+}
+
+p {
+	color: black;
+}
+
+.navbar{
+  background-color: white;
+}
+
+.inline {
+	display: inline;
+}
+
+.gallery {
+	margin: 20px;
+}
+
+.review-div {
+	background-color: #e8e8ee;
+	padding: 20px;
+	border-radius:5%;
+	margin: 20px 15px 10px 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.review-div:hover {
+	background-color: #dfdfe7;
+}
