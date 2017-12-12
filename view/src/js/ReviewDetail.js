@@ -34,17 +34,18 @@ class ReviewDetail extends Component {
   			return (
 	    		<div>
 	    			<div>
-	    		<Navbar fixedTop collapseOnSelect>
-		        	<Navbar.Header>
-			            <Navbar.Brand>
-			            	<Link  to={'/' + currentToken + '/reviews'}>
-			            		<Glyphicon glyph="arrow-left" /> All {currentToken} Reviews
-			            	</Link>
-			       		</Navbar.Brand>          	
-		          	</Navbar.Header>
-			        </Navbar>
+                        <Navbar fixedTop collapseOnSelect>
+	                        <Navbar.Header>
+                                <Navbar.Brand>
+                                    <Link  to={'/' + currentToken + '/reviews'}>
+			            		       <Glyphicon glyph="arrow-left" /> All {currentToken} Reviews
+			            	        </Link>
+			       		        </Navbar.Brand>          	
+		                  	</Navbar.Header>
+                        </Navbar>
 	    			</div>
-	    			<div>
+	    			
+                    <div>
 	    				<Grid>
 	    					<Row>
 	    						<Col xs={10}>
@@ -58,52 +59,52 @@ class ReviewDetail extends Component {
 	    					</Row>
 	    					<hr></hr>
 	    					<Row >
-    					<Col xs={10}>
-    						<div style={{ marginBottom: '20px' }}>
-    							<h2 className='inline' style={{ fontWeight: 'bold' }}>{reviews.score_overall} </h2>
-    							<p className='inline' style={{ color: '#d3d3d3' }}>/100 overall score</p>
-    						</div>
-    					</Col>
-    					</Row>
+            					<Col xs={10}>
+            						<div style={{ marginBottom: '20px' }}>
+            							<h2 className='inline' style={{ fontWeight: 'bold' }}>{reviews.score_overall} </h2>
+            							<p className='inline' style={{ color: '#d3d3d3' }}>/100 overall score</p>
+            						</div>
+            					</Col>
+        					</Row>
 	    					<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={reviews.score_transparency} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Transparency: <b>{reviews.score_transparency}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={reviews.score_legal} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Legal: <b>{reviews.score_legal}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={reviews.score_usability} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Functionality: <b>{reviews.score_usability}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={reviews.score_quality} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Governance: <b>{reviews.score_quality}%</b></p>
-    					</Col>
-    				</Row>
-    				<hr></hr>
-    				<Row>
-    					<Col xs={12}>
-    						<p>{reviews.review}</p>
-    					</Col>
-    				</Row>
-	 				</Grid>
+            					<Col xs={6}>
+            						<ProgressBar bsStyle="warning" now={reviews.score_transparency} />
+            					</Col>
+            					<Col xs={6}>
+            						<p style={{ color: '#F89406' }}> Transparency: <b>{reviews.score_transparency}%</b></p>
+            					</Col>
+            				</Row>
+            				<Row>
+            					<Col xs={6}>
+            						<ProgressBar bsStyle="warning" now={reviews.score_legal} />
+            					</Col>
+            					<Col xs={6}>
+            						<p style={{ color: '#F89406' }}> Legal: <b>{reviews.score_legal}%</b></p>
+            					</Col>
+            				</Row>
+            				<Row>
+            					<Col xs={6}>
+            						<ProgressBar bsStyle="warning" now={reviews.score_usability} />
+            					</Col>
+            					<Col xs={6}>
+            						<p style={{ color: '#F89406' }}> Functionality: <b>{reviews.score_usability}%</b></p>
+            					</Col>
+            				</Row>
+            				<Row>
+            					<Col xs={6}>
+            						<ProgressBar bsStyle="warning" now={reviews.score_quality} />
+            					</Col>
+            					<Col xs={6}>
+            						<p style={{ color: '#F89406' }}> Governance: <b>{reviews.score_quality}%</b></p>
+            					</Col>
+            				</Row>
+    				        <hr></hr>
+            				<Row>
+            					<Col xs={12}>
+            						<p>{reviews.review}</p>
+            					</Col>
+            				</Row>
+                        </Grid>
 	 				</div> 		
         		</div>
         	)
