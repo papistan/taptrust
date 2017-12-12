@@ -51,109 +51,108 @@ class Profile extends Component {
 
 
   			return (
-    		<div>
-    			<Navigation />
-
-    			<Grid>
-    				<Row>
-    					<Col xs={10}><h2>{token.name}</h2></Col>
-    				</Row>
-    				<Row>
-    					<Col xs={10}><p style={{ color: '#b19cd9' }}>Category: {token.category}</p></Col>
-    				</Row>
-    				<Row>
-    					<Col xs={10}><p>{token.description}</p></Col>
-    				</Row>
-    				<hr></hr>
-    				<Row >
-    					<Col xs={6}>
-    						<div>
-    							<h2 className='inline' style={{ fontWeight: 'bold' }}>{token.score_overall} </h2>
-    							<p className='inline' style={{ color: '#d3d3d3' }}>/100 overall score</p>
-    						</div>
-    					</Col>
-    					<Col xs={6}>
-    						{(token.score_overall > 60) ?
-	                    		<p style={{ fontWeight: 'bold', color: 'blue' }}>Trusted</p> : 
-	                    		<p style={{ fontWeight: 'bold', color: 'red' }}>Not Trusted</p>
-	                    	}
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={10}>
-    						<p>From {reviews.length} User Reviews</p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={token.score_transparency} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Transparency: <b>{token.score_transparency}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={token.score_legal} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Legal: <b>{token.score_legal}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={token.score_usability} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Functionality: <b>{token.score_usability}%</b></p>
-    					</Col>
-    				</Row>
-    				<Row>
-    					<Col xs={6}>
-    						<ProgressBar bsStyle="warning" now={token.score_quality} />
-    					</Col>
-    					<Col xs={6}>
-    						<p style={{ color: '#F89406' }}> Governance: <b>{token.score_quality}%</b></p>
-    					</Col>
-    				</Row>
-    				<div className='review-div'>
-    					<Row>
-    						<Col xs={6}>
-    							<p style={{ fontSize: '30px' }}>{lastReview.score_overall}</p>
-    							<p style={{ color: 'grey' }}>Overall Score</p>
-    						</Col>
-    						<Col xs={6}>
-    							<h4>{lastReview.name}</h4>
-    							<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
-    						</Col>
-    					</Row>
-    					<Row>
-    						<Col xs={3}>
-    							<p>{lastReview.score_transparency}</p>
-    							<p style={{ color: 'grey' }}>Trans-</p>
-    							<p style={{ color: 'grey', marginTop: '-15px' }}>parency</p>
-    						</Col>
-    						<Col xs={3}>
-    							<p>{lastReview.score_legal}</p>
-    							<p style={{ color: 'grey' }}>Legal Status</p>
-    						</Col>
-    						<Col xs={3}>
-    							<p>{lastReview.score_usability}</p>
-    							<p style={{ color: 'grey' }}>Function-</p>
-    							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
-    						</Col>
-    						<Col xs={3}>
-    							<p>{lastReview.score_quality}</p>
-    							<p style={{ color: 'grey' }}>Govern-</p>
-    							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
-    						</Col>
-    					</Row>
-    					<Row>
-    						<Col xs={10}>
-    							<p style={{ color: 'gray' }}>{lastReview.review}</p>
-    						</Col>
-    					</Row>
-    				</div>
+                <div>
+                    <Navigation />
+                    <Grid>
+        				<Row>
+        					<Col xs={10}><h2>{token.name}</h2></Col>
+        				</Row>
+        				<Row>
+        					<Col xs={10}><p style={{ color: '#b19cd9' }}>Category: {token.category}</p></Col>
+        				</Row>
+        				<Row>
+        					<Col xs={10}><p>{token.description}</p></Col>
+        				</Row>
+        				<hr></hr>
+        				<Row >
+        					<Col xs={6}>
+        						<div>
+        							<h2 className='inline' style={{ fontWeight: 'bold' }}>{token.score_overall} </h2>
+        							<p className='inline' style={{ color: '#d3d3d3' }}>/100 overall score</p>
+        						</div>
+        					</Col>
+        					<Col xs={6}>
+        						{(token.score_overall > 60) ?
+    	                    		<p style={{ fontWeight: 'bold', color: 'blue' }}>Trusted</p> : 
+    	                    		<p style={{ fontWeight: 'bold', color: 'red' }}>Not Trusted</p>
+    	                    	}
+        					</Col>
+        				</Row>
+        				<Row>
+        					<Col xs={10}>
+        						<p>From {reviews.length} User Reviews</p>
+        					</Col>
+        				</Row>
+        				<Row>
+        					<Col xs={6}>
+        						<ProgressBar bsStyle="warning" now={token.score_transparency} />
+        					</Col>
+        					<Col xs={6}>
+        						<p style={{ color: '#F89406' }}> Transparency: <b>{token.score_transparency}%</b></p>
+        					</Col>
+        				</Row>
+        				<Row>
+        					<Col xs={6}>
+        						<ProgressBar bsStyle="warning" now={token.score_legal} />
+        					</Col>
+        					<Col xs={6}>
+        						<p style={{ color: '#F89406' }}> Legal: <b>{token.score_legal}%</b></p>
+        					</Col>
+        				</Row>
+        				<Row>
+        					<Col xs={6}>
+        						<ProgressBar bsStyle="warning" now={token.score_usability} />
+        					</Col>
+        					<Col xs={6}>
+        						<p style={{ color: '#F89406' }}> Functionality: <b>{token.score_usability}%</b></p>
+        					</Col>
+        				</Row>
+        				<Row>
+        					<Col xs={6}>
+        						<ProgressBar bsStyle="warning" now={token.score_quality} />
+        					</Col>
+        					<Col xs={6}>
+        						<p style={{ color: '#F89406' }}> Governance: <b>{token.score_quality}%</b></p>
+        					</Col>
+        				</Row>
+        				<div className='review-div'>
+        					<Row>
+        						<Col xs={6}>
+        							<p style={{ fontSize: '30px' }}>{lastReview.score_overall}</p>
+        							<p style={{ color: 'grey' }}>Overall Score</p>
+        						</Col>
+        						<Col xs={6}>
+        							<h4>{lastReview.name}</h4>
+        							<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
+        						</Col>
+        					</Row>
+        					<Row>
+        						<Col xs={3}>
+        							<p>{lastReview.score_transparency}</p>
+        							<p style={{ color: 'grey' }}>Trans-</p>
+        							<p style={{ color: 'grey', marginTop: '-15px' }}>parency</p>
+        						</Col>
+        						<Col xs={3}>
+        							<p>{lastReview.score_legal}</p>
+        							<p style={{ color: 'grey' }}>Legal Status</p>
+        						</Col>
+        						<Col xs={3}>
+        							<p>{lastReview.score_usability}</p>
+        							<p style={{ color: 'grey' }}>Function-</p>
+        							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
+        						</Col>
+        						<Col xs={3}>
+        							<p>{lastReview.score_quality}</p>
+        							<p style={{ color: 'grey' }}>Govern-</p>
+        							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
+        						</Col>
+        					</Row>
+        					<Row>
+        						<Col xs={10}>
+        							<p style={{ color: 'gray' }}>{lastReview.review}</p>
+        						</Col>
+        					</Row>
+        				</div>
     					<Row>
     						<Col xs={4} xsOffset={8}>
     							<Link 
@@ -195,9 +194,8 @@ class Profile extends Component {
     							<p>{token.website}</p>
     						</Col>
     					</Row>
-    					<hr></hr>
-    			</Grid>
-    		
+    				<hr></hr>
+    			</Grid>	
         	</div>
         	)
   		

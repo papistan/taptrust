@@ -34,62 +34,62 @@ class AllReviews extends Component {
     			const date = new Date(reviews.createdAt);
     			return (
     				<div>
-		    		<div>
-			    		<Navbar fixedTop collapseOnSelect>
-				        	<Navbar.Header>
-					            <Navbar.Brand>
-					            	<Link  to={'/' + token.name}>
-					            		<Glyphicon glyph="arrow-left" /> {token.name}
-					            	</Link>
-					       		</Navbar.Brand>
-				          	</Navbar.Header>  
-					    </Navbar>
-	    			</div>
+			    		<div>
+				    		<Navbar fixedTop collapseOnSelect>
+					        	<Navbar.Header>
+						            <Navbar.Brand>
+						            	<Link  to={'/' + token.name}>
+						            		<Glyphicon glyph="arrow-left" /> {token.name}
+						            	</Link>
+						       		</Navbar.Brand>
+					          	</Navbar.Header>  
+						    </Navbar>
+		    			</div>
 
-	    			<Grid>
-	    				<Link to={'/' + token.name + '/reviews' + '/' + reviews.id} style={{ color: 'black' }}>
-		    				<div className='review-div'>
-		    					<Row>
-		    						<Col xs={6}>
-		    							<p style={{ fontSize: '30px' }}>{reviews.score_overall}</p>
-		    							<p style={{ color: 'grey' }}>Overall Score</p>
-		    						</Col>
-		    						<Col xs={6}>
-		    							<h4>{reviews.name}</h4>
-    									<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
-		    						</Col>
-		    					</Row>
-		    					<Row>
-		    						<Col xs={3}>
-		    							<p>{reviews.score_transparency}</p>
-		    							<p style={{ color: 'grey' }}>Trans-</p>
-		    							<p style={{ color: 'grey', marginTop: '-15px' }}>parency</p>
-		    						</Col>
-		    						<Col xs={3}>
-		    							<p>{reviews.score_legal}</p>
-		    							<p style={{ color: 'grey' }}>Legal Status</p>
-		    						</Col>
-		    						<Col xs={3}>
-		    							<p>{reviews.score_usability}</p>
-		    							<p style={{ color: 'grey' }}>Function-</p>
-		    							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
-		    						</Col>
-		    						<Col xs={3}>
-		    							<p>{reviews.score_quality}</p>
-		    							<p style={{ color: 'grey' }}>Govern-</p>
-		    							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
-		    						</Col>
-		    					</Row>
-		    					<Row>
-		    						<Col xs={10}>
-		    							<p style={{ color: 'gray' }}>{reviews.review}</p>
-		    						</Col>
-		    					</Row>
-	    				</div>
-	    				</Link>
-    				</Grid>
+		    			<Grid>
+		    				<Link to={'/' + token.name + '/reviews' + '/' + reviews.id} style={{ color: 'black' }}>
+			    				<div className='review-div'>
+			    					<Row>
+			    						<Col xs={6}>
+			    							<p style={{ fontSize: '30px' }}>{reviews.score_overall}</p>
+			    							<p style={{ color: 'grey' }}>Overall Score</p>
+			    						</Col>
+			    						<Col xs={6}>
+			    							<h4>{reviews.name}</h4>
+	    									<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
+			    						</Col>
+			    					</Row>
+			    					<Row>
+			    						<Col xs={3}>
+			    							<p>{reviews.score_transparency}</p>
+			    							<p style={{ color: 'grey' }}>Trans-</p>
+			    							<p style={{ color: 'grey', marginTop: '-15px' }}>parency</p>
+			    						</Col>
+			    						<Col xs={3}>
+			    							<p>{reviews.score_legal}</p>
+			    							<p style={{ color: 'grey' }}>Legal Status</p>
+			    						</Col>
+			    						<Col xs={3}>
+			    							<p>{reviews.score_usability}</p>
+			    							<p style={{ color: 'grey' }}>Function-</p>
+			    							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
+			    						</Col>
+			    						<Col xs={3}>
+			    							<p>{reviews.score_quality}</p>
+			    							<p style={{ color: 'grey' }}>Govern-</p>
+			    							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
+			    						</Col>
+			    					</Row>
+			    					<Row>
+			    						<Col xs={10}>
+			    							<p style={{ color: 'gray' }}>{reviews.review}</p>
+			    						</Col>
+			    					</Row>
+		    					</div>
+		    				</Link>
+	    				</Grid>
     				</div>
-    				)
+    			)
     		})
 
   			return (
@@ -108,7 +108,7 @@ class AllReviews extends Component {
 					</Grid>
 					{mappedReviews};	
 				</div>
-  					)
+  			)
    }
 }
 
