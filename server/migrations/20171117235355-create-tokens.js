@@ -32,16 +32,13 @@ module.exports = {
       score_transparency: {
         type: Sequelize.INTEGER
       },
-      score_quality: {
-        type: Sequelize.INTEGER
-      },
-      score_friendly: {
+      score_governance: {
         type: Sequelize.INTEGER
       },
       score_legal: {
         type: Sequelize.INTEGER
       },
-      score_usability: {
+      score_functionality: {
         type: Sequelize.INTEGER
       },
       createdAt: {

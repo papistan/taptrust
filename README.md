@@ -6,7 +6,10 @@ For development:
 2. `npm install` to install dependencies.
 3. Run `sequelize db:migrate`.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
-5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
+
+Frontend:
+
+The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
 
 Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DELETE` at these routes:
 
@@ -45,10 +48,9 @@ As of first commit, parameters for Tokens are:
 
 * score_overall
 * score_transparency
-* score_quality
-* score_friendly
+* score_governance
 * score_legal
-* score_usability
+* score_functionality
 
 NOTE: Token's score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
 
@@ -56,13 +58,11 @@ Parameters for Reviews are:
 
 * name
 * review
+* url
 * score_overall (entered automatically)
 * score_transparency
-* score_quality
-* score_friendly
+* score_governance
 * score_legal
-* score_usability
+* score_functionality
 
-NOTE: score_overall is an average of the other scores. This is working as of first commit.
-
-
+NOTE: score_overall is an average of the other scores.

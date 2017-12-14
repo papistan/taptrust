@@ -6,15 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     review: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
+    url: DataTypes.STRING,
     score_overall: DataTypes.INTEGER,
     score_transparency: DataTypes.INTEGER,
-    score_quality: DataTypes.INTEGER,
-    score_friendly: DataTypes.INTEGER,
+    score_governance: DataTypes.INTEGER,
     score_legal: DataTypes.INTEGER,
-    score_usability: DataTypes.INTEGER,
+    score_functionality: DataTypes.INTEGER,
 }); 
 
       Reviews.associate = (models) => {

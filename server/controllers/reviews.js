@@ -3,8 +3,8 @@ const Tokens = require('../models').Tokens;
 
 //calculates Review's overall_score from other score values
 const Overall = (data) => {
-  const sum = parseInt(data.score_transparency) + parseInt(data.score_quality) + parseInt(data.score_friendly) + parseInt(data.score_legal) + parseInt(data.score_usability);
-  const avg = sum / 5;
+  const sum = parseInt(data.score_transparency) + parseInt(data.score_governance) + parseInt(data.score_legal) + parseInt(data.score_functionality);
+  const avg = sum / 4;
   return Math.round(avg);
 };
 
@@ -18,19 +18,19 @@ const Overall = (data) => {
 }; */
 //Then divide sum() by count(). Not getting this to work yet.
 
+
 module.exports = {
   //create new review
-  create(req, res) {
+  create(req, res, next) {
     return Reviews
       .create({
         name: req.body.name,
         review: req.body.review,
         score_overall: Overall(req.body),
         score_transparency: req.body.score_transparency,
-        score_quality: req.body.score_quality,
-        score_friendly: req.body.score_friendly,
+        score_governance: req.body.score_governance,
         score_legal: req.body.score_legal,
-        score_usability: req.body.score_usability,
+        score_functionality: req.body.score_functionality,
         tokenId: req.params.tokenId,
       })
       //then update token with new scores
@@ -42,10 +42,9 @@ module.exports = {
             .update({
               score_overall: reviews.score_overall,
               score_transparency: reviews.score_transparency,
-              score_quality: reviews.score_quality,
-              score_friendly: reviews.score_friendly,
+              score_governance: reviews.score_governance,
               score_legal: reviews.score_legal,
-              score_usability: reviews.score_usability,
+              score_functionality: reviews.score_functionality,
             })
             .then(tokens => res.status(200).send(tokens))
             .catch(error => res.status(400).send(error));

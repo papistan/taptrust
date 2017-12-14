@@ -71,7 +71,7 @@ module.exports = {
     })
     .catch((error) => res.status(400).send(error));
   },
-
+  
   destroy(req, res) {
   return Tokens
     .findById(req.params.tokenId)

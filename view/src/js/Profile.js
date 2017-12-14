@@ -101,18 +101,18 @@ class Profile extends Component {
         				</Row>
         				<Row>
         					<Col xs={6}>
-        						<ProgressBar bsStyle="warning" now={token.score_usability} />
+        						<ProgressBar bsStyle="warning" now={token.score_functionality} />
         					</Col>
         					<Col xs={6}>
-        						<p style={{ color: '#F89406' }}> Functionality: <b>{token.score_usability}%</b></p>
+        						<p style={{ color: '#F89406' }}> Functionality: <b>{token.score_functionality}%</b></p>
         					</Col>
         				</Row>
         				<Row>
         					<Col xs={6}>
-        						<ProgressBar bsStyle="warning" now={token.score_quality} />
+        						<ProgressBar bsStyle="warning" now={token.score_governance} />
         					</Col>
         					<Col xs={6}>
-        						<p style={{ color: '#F89406' }}> Governance: <b>{token.score_quality}%</b></p>
+        						<p style={{ color: '#F89406' }}> Governance: <b>{token.score_governance}%</b></p>
         					</Col>
         				</Row>
         				<div className='review-div'>
