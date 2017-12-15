@@ -13,7 +13,6 @@ const Navigation = () => {
 		            <Navbar.Brand>
 		            	<span className= 'brand' style={{ color: 'black', fontSize: '25px' }}>Tokens</span>
 		       		</Navbar.Brand>
-		          	<Navbar.Toggle />
 	          	</Navbar.Header>
 	        </Navbar>
     	</div>

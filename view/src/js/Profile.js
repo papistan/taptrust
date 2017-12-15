@@ -137,12 +137,12 @@ class Profile extends Component {
         							<p style={{ color: 'grey' }}>Legal Status</p>
         						</Col>
         						<Col xs={3}>
-        							<p>{lastReview.score_usability}</p>
+        							<p>{lastReview.score_functionality}</p>
         							<p style={{ color: 'grey' }}>Function-</p>
         							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
         						</Col>
         						<Col xs={3}>
-        							<p>{lastReview.score_quality}</p>
+        							<p>{lastReview.score_functionality}</p>
         							<p style={{ color: 'grey' }}>Govern-</p>
         							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
         						</Col>

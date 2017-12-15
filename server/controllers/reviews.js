@@ -26,6 +26,7 @@ module.exports = {
       .create({
         name: req.body.name,
         review: req.body.review,
+        url: req.body.url,
         score_overall: Overall(req.body),
         score_transparency: req.body.score_transparency,
         score_governance: req.body.score_governance,

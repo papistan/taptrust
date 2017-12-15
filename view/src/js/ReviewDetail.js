@@ -87,7 +87,7 @@ class ReviewDetail extends Component {
             						<ProgressBar bsStyle="warning" now={reviews.score_functionality} />
             					</Col>
             					<Col xs={6}>
-            						<p style={{ color: '#F89406' }}> Functionality: <b>{reviews.score_usability}%</b></p>
+            						<p style={{ color: '#F89406' }}> Functionality: <b>{reviews.score_functionality}%</b></p>
             					</Col>
             				</Row>
             				<Row>
@@ -95,7 +95,7 @@ class ReviewDetail extends Component {
             						<ProgressBar bsStyle="warning" now={reviews.score_governance} />
             					</Col>
             					<Col xs={6}>
-            						<p style={{ color: '#F89406' }}> Governance: <b>{reviews.score_quality}%</b></p>
+            						<p style={{ color: '#F89406' }}> Governance: <b>{reviews.score_governance}%</b></p>
             					</Col>
             				</Row>
     				        <hr></hr>
