@@ -1,15 +1,22 @@
 # Taptrust API
 
-For development:
 
-1. Set `DATABASE_URL` to your postgres development database. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
+
+## Running Locally
+
+Make sure you have [Node.js](http://nodejs.org/) installed.
+
+```sh
+$ git clone git@github.com:taptrust/taptrust.git # or clone your own fork
+$ cd taptrust
+```
+
+1. Set `DATABASE_URL` environment variable to your postgres development database. You can do from the command line with `export DATABASE_URL={DATABASE_URL}`. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
 2. `npm install` to install dependencies.
 3. Run `sequelize db:migrate`.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
+5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
 
-Frontend:
-
-The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
 
 Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DELETE` at these routes:
 
@@ -44,6 +51,8 @@ As of first commit, parameters for Tokens are:
 * website
 * founders
 
+The above fields should be sent in POST/PUT requests using x-www-form-urlencoded params.
+
 (all scores automatically entered once a review for the coin is entered)
 
 * score_overall
@@ -58,11 +67,10 @@ Parameters for Reviews are:
 
 * name
 * review
-* url
 * score_overall (entered automatically)
 * score_transparency
 * score_governance
 * score_legal
 * score_functionality
 
-NOTE: score_overall is an average of the other scores.
+NOTE: score_overall is an average of the other scores. This is working as of first commit.
