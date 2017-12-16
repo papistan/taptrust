@@ -57,10 +57,9 @@ The above fields should be sent in POST/PUT requests using x-www-form-urlencoded
 
 * score_overall
 * score_transparency
-* score_quality
-* score_friendly
+* score_governance
 * score_legal
-* score_usability
+* score_functionality
 
 NOTE: Token's score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
 
@@ -70,9 +69,8 @@ Parameters for Reviews are:
 * review
 * score_overall (entered automatically)
 * score_transparency
-* score_quality
-* score_friendly
+* score_governance
 * score_legal
-* score_usability
+* score_functionality
 
 NOTE: score_overall is an average of the other scores. This is working as of first commit.
