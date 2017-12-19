@@ -28,6 +28,7 @@ class ReviewDetail extends Component {
     render() {
     		const reviews = this.state.api;
     		const currentToken = this.props.match.params.name;
+            const url = "http://" + reviews.url;
     		const date = new Date(reviews.createdAt);
     		const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
@@ -57,6 +58,11 @@ class ReviewDetail extends Component {
 	    							<h4 style={{ color: 'gray' }}>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</h4>
 	    						</Col>
 	    					</Row>
+                            <Row>
+                                <Col xs={10}>
+                                    <a href= { url } style={{ fontWeight: 'bold', textDecoration: 'none' }}>{reviews.url}</a>
+                                </Col>
+                            </Row>
 	    					<hr></hr>
 	    					<Row >
             					<Col xs={10}>

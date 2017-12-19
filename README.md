@@ -15,10 +15,11 @@ $ cd taptrust
 2. `npm install` to install dependencies.
 3. Run `sequelize db:migrate`.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
-5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.)
+5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`
 
+With database server and frontend server running, you can post tokens at `localhost:8080/tokenform`, and reviews at `localhost:8080/reviewform/:tokenId`, where tokenId is the id of the token that you want to review.
 
-Then, using [Postman](https://www.getpostman.com/), you can `GET, POST, PUT, DELETE` at these routes:
+In addition, you can `GET, POST, PUT, DELETE` at these routes:
 
 POST:
 
@@ -42,11 +43,12 @@ DELETE:
 * `/api/tokens/:tokenId` to delete a coin
 * `/api/tokens/:tokenId/reviews/:reviewId` to delete a review
 
-As of first commit, parameters for Tokens are:
+The parameters for Tokens are:
 
 * name
 * category
 * description
+* age
 * symbol
 * website
 * founders
@@ -61,16 +63,17 @@ The above fields should be sent in POST/PUT requests using x-www-form-urlencoded
 * score_legal
 * score_functionality
 
-NOTE: Token's score attributes are supposed to update each time a new review is created as the average. Currently, each attribute updates with the scores of the latest reviews. Code to fix this is in progress.
+NOTE: Token's score attributes update each time a new review is created. Each token score parameter is currently the average it's reviews.
 
 Parameters for Reviews are:
 
 * name
 * review
+* url
 * score_overall (entered automatically)
 * score_transparency
 * score_governance
 * score_legal
 * score_functionality
 
-NOTE: score_overall is an average of the other scores. This is working as of first commit.
+NOTE: score_overall is an average of the other scores.

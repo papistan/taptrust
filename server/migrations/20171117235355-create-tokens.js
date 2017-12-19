@@ -15,6 +15,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
+        type: Sequelize.TEXT
+      },
+      age: {
         type: Sequelize.STRING
       },
       symbol: {

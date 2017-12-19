@@ -8,17 +8,6 @@ const Overall = (data) => {
   return Math.round(avg);
 };
 
-//WORKING ON GETTING TOKEN OVERALL SCORES TO BE AVERAGE OF ALL REVIEWS
-/*const tokenOverall = (data) => {
-  return Reviews
-  .sum('score_transparency', { where: { tokenId: data.tokenId }})
-  .then(sum => {
-  return sum;
-  })
-}; */
-//Then divide sum() by count(). Not getting this to work yet.
-
-
 module.exports = {
   //create new review
   create(req, res, next) {
@@ -34,25 +23,10 @@ module.exports = {
         score_functionality: req.body.score_functionality,
         tokenId: req.params.tokenId,
       })
-      //then update token with new scores
-        .then(reviews => {
-          return Tokens
-          .findById(req.params.tokenId)
-          .then(tokens => {
-            return tokens
-            .update({
-              score_overall: reviews.score_overall,
-              score_transparency: reviews.score_transparency,
-              score_governance: reviews.score_governance,
-              score_legal: reviews.score_legal,
-              score_functionality: reviews.score_functionality,
-            })
-            .then(tokens => res.status(200).send(tokens))
-            .catch(error => res.status(400).send(error));
-          })
-          .catch(error => res.status(400).send(error));
-        })
-        .catch(error => res.status(400).send(error));
+      //then move to updateAgg in token controller
+      .then(reviews => next())
+      .catch(error => res.status(400).send(error));
+         
   },
 
   list(req, res) {

@@ -60,6 +60,9 @@ class Profile extends Component {
         				<Row>
         					<Col xs={10}><p style={{ color: '#b19cd9' }}>Category: {token.category}</p></Col>
         				</Row>
+                        <Row>
+                            <Col xs={10}><p>age: {token.age}</p></Col>
+                        </Row>
         				<Row>
         					<Col xs={10}><p>{token.description}</p></Col>
         				</Row>
@@ -72,7 +75,7 @@ class Profile extends Component {
         						</div>
         					</Col>
         					<Col xs={6}>
-        						{(token.score_overall > 60) ?
+        						{(token.score_overall > 50) ?
     	                    		<p style={{ fontWeight: 'bold', color: 'blue' }}>Trusted</p> : 
     	                    		<p style={{ fontWeight: 'bold', color: 'red' }}>Not Trusted</p>
     	                    	}
@@ -142,7 +145,7 @@ class Profile extends Component {
         							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
         						</Col>
         						<Col xs={3}>
-        							<p>{lastReview.score_functionality}</p>
+        							<p>{lastReview.score_governance}</p>
         							<p style={{ color: 'grey' }}>Govern-</p>
         							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
         						</Col>

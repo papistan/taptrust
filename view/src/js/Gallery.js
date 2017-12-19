@@ -43,7 +43,6 @@ class Gallery extends Component {
   		let mappedApi = this.state.api.map(token => {
   			return (
     		<div>
-    			<Navigation />
     			<Grid>
     				<Link to={ '/' + token.name} style={{ textDecoration: 'none' }}>
     					<div className='gallery'>
@@ -51,7 +50,10 @@ class Gallery extends Component {
 		    					<h2>{token.name}</h2>
 		    				</Row>
     						<Row>
-    							<p>{token.description}</p>
+    							<p>{token.description.substr(0,200) + "..."}</p>
+		    				</Row>
+		    				<Row>
+    							<p>age: {token.age}</p>
 		    				</Row>
 			                <Row>
 			                    <Col xs={3}>
@@ -78,7 +80,12 @@ class Gallery extends Component {
         	)
   		})
 
-  			return mappedApi;
+  			return (
+  				<div>
+  				<Navigation />
+  				{mappedApi}
+  				</div>
+  			)
    }
 }
 

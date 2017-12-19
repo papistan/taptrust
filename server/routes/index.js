@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.delete('/api/tokens/:tokenId', tokensController.destroy);
 
   //Review
-  app.post('/api/tokens/:tokenId/reviews', reviewsController.create);
+  app.post('/api/tokens/:tokenId/reviews', reviewsController.create, tokensController.updateAgg);
   app.get('/api/tokens/:tokenId/reviews', reviewsController.list);
   app.put('/api/reviews/:reviewId', reviewsController.update);
   app.get('/api/reviews/:reviewId', reviewsController.retrieve);

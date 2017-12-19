@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     category: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    age: DataTypes.STRING,
     symbol: DataTypes.STRING,
     website: DataTypes.STRING,
     founders: DataTypes.STRING,
@@ -15,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     score_governance: DataTypes.INTEGER,
     score_legal: DataTypes.INTEGER,
     score_functionality: DataTypes.INTEGER,
-  },
-);
+  });
    
   Tokens.associate = (models) => {
     Tokens.hasMany(models.Reviews, {
