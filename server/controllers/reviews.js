@@ -2,10 +2,14 @@ const Reviews = require('../models').Reviews;
 const Tokens = require('../models').Tokens;
 
 //calculates Review's overall_score from other score values
-const Overall = (data) => {
+const Overall = data => {
   const sum = parseInt(data.score_transparency) + parseInt(data.score_governance) + parseInt(data.score_legal) + parseInt(data.score_functionality);
   const avg = sum / 4;
   return Math.round(avg);
+};
+
+const fullReview = data => {
+  return data.review.replace(/(?:\r\n|\r|\n)/g, '<br />');
 };
 
 module.exports = {
@@ -14,7 +18,7 @@ module.exports = {
     return Reviews
       .create({
         name: req.body.name,
-        review: req.body.review,
+        review: fullReview(req.body),
         url: req.body.url,
         score_overall: Overall(req.body),
         score_transparency: req.body.score_transparency,

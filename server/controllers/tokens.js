@@ -79,7 +79,7 @@ module.exports = {
               score_legal: Math.round(agg[0].dataValues.legal_agg),
               score_functionality: Math.round(agg[0].dataValues.functionality_agg),
             })
-            .then(token => res.status(200).send(token))
+            .then(token => res.status(200).send("review posted and aggregate updated!"))
             .catch((error) => res.status(400).send(error));
           })
           .catch((error) => res.status(400).send(error));

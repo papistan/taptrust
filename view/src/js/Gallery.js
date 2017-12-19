@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavItem, Nav, Grid, Col, Row, Glyphicon } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 const API = "http://localhost:8000/api/tokens/";
 
@@ -25,6 +26,7 @@ class Gallery extends Component {
 
 		this.state = {
 			api: [],
+			loading: true,
 		};
 	}
 
@@ -34,6 +36,7 @@ class Gallery extends Component {
 	        	const api = res.data;
 	        	this.setState({ 
 	        		api: api,
+	        		loading: false,
 	        	});
 	        });
 	       
@@ -42,7 +45,7 @@ class Gallery extends Component {
   	render() {
   		let mappedApi = this.state.api.map(token => {
   			return (
-    		<div>
+    		<div key={token.id}>
     			<Grid>
     				<Link to={ '/' + token.name} style={{ textDecoration: 'none' }}>
     					<div className='gallery'>
@@ -50,7 +53,7 @@ class Gallery extends Component {
 		    					<h2>{token.name}</h2>
 		    				</Row>
     						<Row>
-    							<p>{token.description.substr(0,200) + "..."}</p>
+    							<p>{token.description.substr(0,250) + "..."}</p>
 		    				</Row>
 		    				<Row>
     							<p>age: {token.age}</p>
@@ -79,13 +82,16 @@ class Gallery extends Component {
         	</div>
         	)
   		})
-
-  			return (
-  				<div>
-  				<Navigation />
-  				{mappedApi}
-  				</div>
-  			)
+  			if (this.state.loading) {
+                return <Loading />
+            } else {
+	  			return (
+	  				<div>
+	  				<Navigation />
+	  				{mappedApi}
+	  				</div>
+	  			)
+	  		}
    }
 }
 

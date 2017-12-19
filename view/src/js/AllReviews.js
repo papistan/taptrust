@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavItem, Nav, Grid, Col, Row, ProgressBar, Glyphicon } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 class AllReviews extends Component {
 	constructor(props) {
@@ -9,6 +10,7 @@ class AllReviews extends Component {
 
 		this.state = {
 			api: [],
+			loading: true,
 		};
 	}
 
@@ -20,6 +22,7 @@ class AllReviews extends Component {
 	        	const api = res.data;
 	        	this.setState({ 
 	        		api: api,
+	        		loading: false,
 	        	});
 	        });
 	       
@@ -33,13 +36,13 @@ class AllReviews extends Component {
     		let mappedReviews = reviews.map(reviews => {
     			const date = new Date(reviews.createdAt);
     			return (
-    				<div>
+    				<div key={reviews.id}>
 			    		<div>
 				    		<Navbar fixedTop collapseOnSelect>
 					        	<Navbar.Header>
 						            <Navbar.Brand>
 						            	<Link  to={'/' + token.name}>
-						            		<Glyphicon glyph="arrow-left" /> {token.name}
+						            		<Glyphicon glyph="chevron-left" />{token.name}
 						            	</Link>
 						       		</Navbar.Brand>
 					          	</Navbar.Header>  
@@ -82,7 +85,7 @@ class AllReviews extends Component {
 			    					</Row>
 			    					<Row>
 			    						<Col xs={10}>
-			    							<p style={{ color: 'gray' }}>{reviews.review}</p>
+			    							<p style={{ color: 'gray' }}>{reviews.review.substr(0,250) + "..."}</p>
 			    						</Col>
 			    					</Row>
 		    					</div>
@@ -92,23 +95,27 @@ class AllReviews extends Component {
     			)
     		})
 
-  			return (
-  				<div>
-					<Grid>
-						<Row>
-							<Col xs={10}>
-								<h2>All Reviews</h2>
-							</Col>
-						</Row>
-						<Row>
-							<Col xs={10}>
-								<p style={{ color: 'grey' }}>{reviews.length} total reviews</p>
-							</Col>
-						</Row>
-					</Grid>
-					{mappedReviews};	
-				</div>
-  			)
+    		if (this.state.loading) {
+                return <Loading />
+            } else {
+	  			return (
+	  				<div>
+						<Grid>
+							<Row>
+								<Col xs={10}>
+									<h2>All Reviews</h2>
+								</Col>
+							</Row>
+							<Row>
+								<Col xs={10}>
+									<p style={{ color: 'grey' }}>{reviews.length} total reviews</p>
+								</Col>
+							</Row>
+						</Grid>
+						{mappedReviews};	
+					</div>
+	  			)
+	  		}
    }
 }
 
