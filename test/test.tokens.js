@@ -17,7 +17,7 @@ function cleanup() {
 
 function create() {
     let token = ({
-            id: '1',
+            id: 1,
             name: 'TestCoin',
             category: 'General',
             description: 'Here is the test description of TestCoin',
@@ -30,15 +30,12 @@ function create() {
 }
 
 describe('Tokens', () => {
-    beforeEach((done) => { //Before each test we empty the database
+    beforeEach((done) => {
           cleanup();
           create();
           done();       
         });
 
-    /*
-  * Test the /GET route
-  */
   describe('/GET tokens', () => {
       it('it should GET all the tokens and reviews', (done) => {
         chai.request(app)
@@ -50,8 +47,8 @@ describe('Tokens', () => {
             });
       });
   });
-
-  it('it should POST a token ', (done) => {
+  describe('/POST token', () => {
+      it('it should POST a token ', (done) => {
         let token = {
             name: 'TwoCoin',
             category: 'General',
@@ -70,6 +67,7 @@ describe('Tokens', () => {
               done();
             });
       });
+});
 
   describe('/GET/:name token', () => {
       it('it should GET a token by the given name', (done) => {
@@ -82,12 +80,11 @@ describe('Tokens', () => {
             });
         });
       });
-});
 
-  /*describe('/PUT/:tokenId token', () => {
+  describe('/PUT/:tokenId token', () => {
       it('it should UPDATE a token given the id', (done) => {
                 chai.request(app)
-                .put('/api/tokens/TestCoin')
+                .put('/api/tokens/1')
                 .send({
                     name: 'NewTestCoin',
                 })
@@ -97,17 +94,17 @@ describe('Tokens', () => {
                   done();
                 });
           });
-      }); */
+      });
 
-  /*describe('/DELETE/:id tokens', () => {
+  /* describe('/DELETE/:id tokens', () => {
       it('it should DELETE a token given the id', (done) => {
                 chai.request(app)
                 .delete('/api/tokens/1')
                 .end((err, res) => {
-                    res.should.have.status(200);
+                    res.should.have.status(204);
                     res.body.should.be.a('object');
                   done();
                 });
           });
-      });
-  }); */
+      }); */
+  });

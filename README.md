@@ -88,3 +88,9 @@ The above fields should be sent in POST/PUT requests using *x-www-form-urlencode
 | score_governance		| *Integer*		| A score for a given token based on it's governance, 0-100.   | 
 | createdAt    				| *Date* 		| Automatically generated datetime that the review was created 	|
 | updatedAt    				| *Date* 		| Automatically generated datetime that the review was last updated 	|
+
+### Testing:
+
+1. Set `TESTDB_URL` environment variable to your postgres development database. You can do that from the command line with `export TESTDB_URL={TESTDB_URL}`. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
+2. Run `sequelize db:migrate --env test` to set up a replica of your development database on the test database.
+3. Run `npm test`.
