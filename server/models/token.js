@@ -5,12 +5,30 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    age: DataTypes.STRING,
-    symbol: DataTypes.STRING,
-    website: DataTypes.STRING,
-    founders: DataTypes.STRING,
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    age: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    symbol: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    website: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    founders: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     score_overall: DataTypes.INTEGER,
     score_transparency: DataTypes.INTEGER,
     score_governance: DataTypes.INTEGER,

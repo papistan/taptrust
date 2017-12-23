@@ -10,9 +10,8 @@ module.exports = (app) => {
   app.post('/api/tokens', tokensController.create);
   app.get('/api/tokens', tokensController.list);
   app.get('/api/tokens/:name', tokensController.retrieve);
-  // TOOK OUT IN PLACE OF ABOVE. USE BOTH?
-  // app.get('/api/tokens/:tokenId', tokensController.retrieve);
-  app.put('/api/tokens/:tokenId', tokensController.update);
+  //app.get('/api/tokens/:tokenId', tokensController.retrieve);
+  app.put('/api/tokens/:name', tokensController.update);
   app.delete('/api/tokens/:tokenId', tokensController.destroy);
 
   //Review

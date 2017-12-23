@@ -9,24 +9,31 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       category: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       age: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       symbol: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       website: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       founders: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       score_overall: {

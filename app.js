@@ -7,7 +7,7 @@ const cors = require('cors');
 // Set up the express app
 const app = express();
 
-//set up CORS for development REMOVE LATER?
+//set up CORS for development
 app.use(cors());
 
 // Log requests to the console.

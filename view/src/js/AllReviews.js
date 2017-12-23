@@ -53,11 +53,11 @@ class AllReviews extends Component {
 		    				<Link to={'/' + token.name + '/reviews' + '/' + reviews.id} style={{ color: 'black' }}>
 			    				<div className='review-div'>
 			    					<Row>
-			    						<Col xs={6}>
+			    						<Col xs={8}>
 			    							<p style={{ fontSize: '30px' }}>{reviews.score_overall}</p>
 			    							<p style={{ color: 'grey' }}>Overall Score</p>
 			    						</Col>
-			    						<Col xs={6}>
+			    						<Col xs={4}>
 			    							<h4>{reviews.name}</h4>
 	    									<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
 			    						</Col>
@@ -65,27 +65,27 @@ class AllReviews extends Component {
 			    					<Row>
 			    						<Col xs={3}>
 			    							<p>{reviews.score_transparency}</p>
-			    							<p style={{ color: 'grey' }}>Trans-</p>
-			    							<p style={{ color: 'grey', marginTop: '-15px' }}>parency</p>
+			    							<p style={{ color: 'grey' }}>Transparency</p>
 			    						</Col>
 			    						<Col xs={3}>
 			    							<p>{reviews.score_legal}</p>
-			    							<p style={{ color: 'grey' }}>Legal Status</p>
+			    							<span className="text-nowrap"><p style={{ color: 'grey' }}>Legal Status</p></span>
 			    						</Col>
 			    						<Col xs={3}>
 			    							<p>{reviews.score_functionality}</p>
-			    							<p style={{ color: 'grey' }}>Function-</p>
-			    							<p style={{ color: 'grey', marginTop: '-15px' }}>ality</p>
+			    							<p style={{ color: 'grey' }}>Functionality</p>
 			    						</Col>
 			    						<Col xs={3}>
 			    							<p>{reviews.score_governance}</p>
-			    							<p style={{ color: 'grey' }}>Govern-</p>
-			    							<p style={{ color: 'grey', marginTop: '-15px' }}>ance</p>
+			    							<p style={{ color: 'grey' }}>Governance</p>
 			    						</Col>
 			    					</Row>
 			    					<Row>
-			    						<Col xs={10}>
-			    							<p style={{ color: 'gray' }}>{reviews.review.substr(0,250) + "..."}</p>
+			    						<Col xs={12}>
+			    							{(reviews.review.length > 250) ?
+                                                <p style={{ color: 'gray' }}>{reviews.review.substr(0,250) + "..."}</p> :
+                                                <p style={{ color: 'gray' }}> {reviews.review}</p>
+                                            }
 			    						</Col>
 			    					</Row>
 		    					</div>

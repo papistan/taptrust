@@ -9,12 +9,27 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    url: DataTypes.STRING,
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     score_overall: DataTypes.INTEGER,
-    score_transparency: DataTypes.INTEGER,
-    score_governance: DataTypes.INTEGER,
-    score_legal: DataTypes.INTEGER,
-    score_functionality: DataTypes.INTEGER,
+    score_transparency: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    score_governance: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    score_legal: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    score_functionality: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
 }); 
 
       Reviews.associate = (models) => {

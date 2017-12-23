@@ -1,6 +1,7 @@
 body {
-	font-size: 14px;
-	padding: 40px 0 20px 0;
+	font-size: 15px;
+	padding: 40px 5px 20px 5px;
+  font-family: 'Rubik', sans-serif;
 }
 
 h2 {
@@ -32,7 +33,7 @@ label {
 	background-color: #e8e8ee;
 	padding: 20px;
 	border-radius:5%;
-	margin: 20px 15px 10px 0px;
+	margin: 20px 10px 10px 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
