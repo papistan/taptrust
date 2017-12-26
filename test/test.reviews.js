@@ -86,7 +86,7 @@ describe('Reviews', () => {
         });
       });
  
-  /* describe('/PUT/:reviewsId token', () => {
+   describe('/PUT/:reviewsId token', () => {
       it('it should UPDATE a token given the id', (done) => {
                 chai.request(app)
                 .put('/api/reviews/1')
@@ -99,7 +99,7 @@ describe('Reviews', () => {
                   done();
                 });
           });
-      }); */
+      });
 
    describe('/DELETE/:id review', () => {
       it('it should DELETE a review given the id', (done) => {

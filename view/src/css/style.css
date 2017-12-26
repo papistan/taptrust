@@ -41,8 +41,12 @@ label {
 	background-color: #dfdfe7;
 }
 
-.white-space{
+.white-space {
 	white-space: pre-wrap;
+}
+
+.progress-bar {
+  background-color: #FFCC11 !important;
 }
 
 /* Spinner */

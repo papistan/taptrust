@@ -76,7 +76,7 @@ class Gallery extends Component {
 			                    	}
 			                    </Col>
 			                    <Col xs={2}>
-			                    	<p className="inline" style={{ color: '#b19cd9', fontWeight:"bolder" }}>{token.category}</p>
+			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px" }}>{token.category}</p>
 			                    </Col>
 	                		</Row>
 	                	</div>

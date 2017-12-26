@@ -51,7 +51,7 @@ module.exports = {
     .catch(error => res.status(400).send(error));
   },
 
-  update(req, res) {s
+  update(req, res) {
   return Reviews
     .findById(req.params.reviewId)
     .then(review => {
@@ -61,7 +61,7 @@ module.exports = {
         });
       }
 
-      return reviews
+      return review
         //update only changed values to db, keep others the same
         .update(req.body, { fields: Object.keys(req.body) })
         .then(updatedReview => {
@@ -70,11 +70,11 @@ module.exports = {
               .update({ score_overall: Overall(review) })
               //send updated db with new overall_score
               .then(sendUpdate => res.status(200).send(sendUpdate))
-              .catch(error => res.status(400).send(error));
+              .catch(error => res.status(401).send(error));
         })
-        .catch(error => res.status(400).send(error));
+        .catch(error => res.status(402).send(error));
     })
-    .catch(error => res.status(400).send(error));
+    .catch(error => res.status(403).send(error));
   },
 
   destroy(req, res) {

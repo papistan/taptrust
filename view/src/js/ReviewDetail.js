@@ -84,7 +84,7 @@ class ReviewDetail extends Component {
                 						<ProgressBar bsStyle="warning" now={reviews.score_transparency} />
                 					</Col>
                 					<Col xs={6}>
-                						<p style={{ color: '#F89406' }}> Transparency: <b>{reviews.score_transparency}%</b></p>
+                						<p style={{ color: '#FFCC11' }}> Transparency: <b>{reviews.score_transparency}%</b></p>
                 					</Col>
                 				</Row>
                 				<Row>
@@ -92,7 +92,7 @@ class ReviewDetail extends Component {
                 						<ProgressBar bsStyle="warning" now={reviews.score_legal} />
                 					</Col>
                 					<Col xs={6}>
-                						<p style={{ color: '#F89406' }}> Legal: <b>{reviews.score_legal}%</b></p>
+                						<p style={{ color: '#FFCC11' }}> Legal: <b>{reviews.score_legal}%</b></p>
                 					</Col>
                 				</Row>
                 				<Row>
@@ -100,7 +100,7 @@ class ReviewDetail extends Component {
                 						<ProgressBar bsStyle="warning" now={reviews.score_functionality} />
                 					</Col>
                 					<Col xs={6}>
-                						<p style={{ color: '#F89406' }}> Functionality: <b>{reviews.score_functionality}%</b></p>
+                						<p style={{ color: '#FFCC11' }}> Functionality: <b>{reviews.score_functionality}%</b></p>
                 					</Col>
                 				</Row>
                 				<Row>
@@ -108,7 +108,7 @@ class ReviewDetail extends Component {
                 						<ProgressBar bsStyle="warning" now={reviews.score_governance} />
                 					</Col>
                 					<Col xs={6}>
-                						<p style={{ color: '#F89406' }}> Governance: <b>{reviews.score_governance}%</b></p>
+                						<p style={{ color: '#FFCC11' }}> Governance: <b>{reviews.score_governance}%</b></p>
                 					</Col>
                 				</Row>
         				        <hr></hr>

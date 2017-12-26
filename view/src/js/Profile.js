@@ -61,8 +61,8 @@ class Profile extends Component {
             					<Col xs={10}><h2>{token.name}</h2></Col>
             				</Row>
             				<Row>
-            					<Col xs={10}><p style={{ color: '#b19cd9', fontWeight:"bolder" }}>Category: {token.category}</p>
-                                            <p style={{ color: '#b19cd9', fontWeight:"bolder", marginTop: "-10px" }}>age: {token.age}</p>
+            					<Col xs={10}><p style={{ color: '#b19cd9', fontSize: "16px" }}>Category: {token.category}</p>
+                                            <p style={{ color: '#b19cd9', marginTop: "-10px", fontSize: "16px" }}>age: {token.age}</p>
                                 </Col>
             				</Row>
             				<Row>
@@ -89,7 +89,7 @@ class Profile extends Component {
             				</Row>
             				<Row>
             					<Col xs={12}>
-            						<p>From {reviews.length} User Reviews</p>
+            						<p style={{ fontWeight: "bold" }}>From {reviews.length} User Reviews</p>
             					</Col>
             				</Row>
             				<Row>
@@ -97,7 +97,7 @@ class Profile extends Component {
             						<ProgressBar bsStyle="warning" now={token.score_transparency} />
             					</Col>
             					<Col xs={5}>
-            						<span className="text-nowrap inline"><p style={{ color: '#F89406' }}> Transparency: <b>{token.score_transparency}%</b></p></span>
+            						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Transparency: <b>{token.score_transparency}%</b></p></span>
             					</Col>
             				</Row>
             				<Row>
@@ -105,7 +105,7 @@ class Profile extends Component {
             						<ProgressBar bsStyle="warning" now={token.score_legal} />
             					</Col>
             					<Col xs={5}>
-            						<span className="text-nowrap inline"><p style={{ color: '#F89406' }}> Legal Status: <b>{token.score_legal}%</b></p></span>
+            						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Legal Status: <b>{token.score_legal}%</b></p></span>
             					</Col>
             				</Row>
             				<Row>
@@ -113,7 +113,7 @@ class Profile extends Component {
             						<ProgressBar bsStyle="warning" now={token.score_functionality} />
             					</Col>
             					<Col xs={5}>
-            						<span className="text-nowrap inline"><p style={{ color: '#F89406' }}> Functionality: <b>{token.score_functionality}%</b></p></span>
+            						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Functionality: <b>{token.score_functionality}%</b></p></span>
             					</Col>
             				</Row>
             				<Row>
@@ -121,7 +121,7 @@ class Profile extends Component {
             						<ProgressBar bsStyle="warning" now={token.score_governance} />
             					</Col>
             					<Col xs={5}>
-            						<span className="text-nowrap inline"><p style={{ color: '#F89406' }}> Governance: <b>{token.score_governance}%</b></p></span>
+            						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Governance: <b>{token.score_governance}%</b></p></span>
             					</Col>
             				</Row>
             				<div className='review-div'>

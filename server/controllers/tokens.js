@@ -106,7 +106,7 @@ module.exports = {
         .update(req.body, { 
           fields: Object.keys(req.body),
         })
-        .then((token) => res.status(200).send(token))  // Send back the updated values.
+        .then((token) => res.status(200).send(token))
         .catch((error) => res.status(400).send(error));
     })
     .catch((error) => res.status(400).send(error));

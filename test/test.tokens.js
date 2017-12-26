@@ -15,7 +15,7 @@ function cleanup() {
     return Tokens.destroy({ truncate: true, cascade: true });
 }
 
-function create() {
+function createToken() {
     let token = ({
             id: 1,
             name: 'TestCoin',
@@ -32,7 +32,7 @@ function create() {
 describe('Tokens', () => {
     beforeEach((done) => {
           cleanup();
-          create();
+          createToken();
           done();       
         });
 
@@ -96,7 +96,7 @@ describe('Tokens', () => {
           });
       });
 
-  /* describe('/DELETE/:id tokens', () => {
+  /*describe('/DELETE/:id tokens', () => {
       it('it should DELETE a token given the id', (done) => {
                 chai.request(app)
                 .delete('/api/tokens/1')
@@ -106,5 +106,5 @@ describe('Tokens', () => {
                   done();
                 });
           });
-      }); */
+      });*/
   });
