@@ -2,7 +2,7 @@
 
 
 ## Getting Started
-#### Running Locally
+
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
@@ -11,11 +11,24 @@ $ git clone git@github.com:taptrust/taptrust.git # or clone your own fork
 $ cd taptrust
 ```
 
+#### Running Backend Server
+
+The backend server uses Node.js, Express and PostgreSQL.
+
 1. Set `DATABASE_URL` environment variable to your postgres development database. You can do that from the command line with `export DATABASE_URL={DATABASE_URL}`. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
 2. `npm install` to install dependencies.
 3. Run `sequelize db:migrate`.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
-5. The frontend is in the `view` folder. `cd view` and run `npm install` and `npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`
+
+
+#### Running Frontend Server 
+
+The frontend server uses React, webpack, and Node.js.
+
+1. The frontend is in the `view` folder. Navigate to this folder with `cd view`.
+2. `npm install`
+3. Run`npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`.
+
 
 #### Post first token/review
 
