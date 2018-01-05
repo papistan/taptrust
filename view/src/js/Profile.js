@@ -69,7 +69,7 @@ class Profile extends Component {
             					<Col xs={10}><p>{token.description}</p></Col>
             				</Row>
             				<hr></hr>
-            				<Row >
+            				<Row>
             					<Col xs={8} className="inline">
             						<div>
             							<h2 className='inline' style={{ fontWeight: 'bold' }}>{token.score_overall} </h2>
@@ -78,10 +78,10 @@ class Profile extends Component {
             					</Col>
             					<Col xs={4} className="inline">
             						{(token.score_overall > 50) ?
-        	                    		<p style={{ fontSize: "16px" }}><Label bsStyle="info">
+        	                    		<p style={{ fontSize: "16px" }}><Label className="trusted">
                                                 <Glyphicon glyph="ok-circle" /> Trusted
                                             </Label></p> : 
-                                        <p style={{ fontSize: "16px" }}><Label bsStyle="danger">
+                                        <p style={{ fontSize: "16px" }}><Label className="not-trusted">
                                                 <Glyphicon glyph="remove-circle" /> Not Trusted
                                             </Label></p>
         	                    	}

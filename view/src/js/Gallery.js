@@ -12,7 +12,7 @@ const Navigation = () => {
     		<Navbar fixedTop collapseOnSelect>
 	        	<Navbar.Header>
 		            <Navbar.Brand>
-		            	<span className= 'brand' style={{ color: 'black', fontSize: '25px', fontWeight:'bolder' }}>Tokens</span>
+		            	<span className= 'brand' style={{ color: 'black', fontSize: '35px', fontWeight:'bolder' }}>Tokens</span>
 		       		</Navbar.Brand>
 	          	</Navbar.Header>
 	        </Navbar>
@@ -50,33 +50,37 @@ class Gallery extends Component {
     				<Link to={ '/' + token.name} style={{ textDecoration: 'none' }}>
     					<div className='gallery'>
 		    				<Row>
-		    					<h2>{token.name}</h2>
+		    					<Col xs={12} md={10}>
+		    						<h3>{token.name}</h3>
+		    					</Col>
 		    				</Row>
     						<Row>
-    							{(token.description.length > 250) ?
-    								<p>{token.description.substr(0,250) + "..."}</p> :
-    								<p>{token.description}</p>
-    							}
+    							<Col xs={12} md={10}>
+	    							{(token.description.length > 250) ?
+	    								<p>{token.description.substr(0,250) + "..."}</p> :
+	    								<p>{token.description}</p>
+	    							}
+	    						</Col>
 		    				</Row>
 			                <Row>
-			                    <Col xs={2}>
-			                    	<p className="inline" style={{ fontWeight: 'bolder' }}>{token.score_overall}%</p>
+			                    <Col xs={2} md={3}>
+			                    		<p className="inline" style={{ fontWeight: 'bolder', fontSize: "18px" }}>{token.score_overall}%</p>
 			                    </Col>
-			                    <Col xs={4}>
-			                    	<span className="text-nowrap inline"><p style={{ color: '#d3d3d3', fontWeight: "bold" }}>({token.Reviews.length} Reviews)</p></span>
+			                    <Col xs={4} md={3}>
+			                    	<span className="text-nowrap inline"><p style={{ color: '#d3d3d3', fontWeight: "bold", fontSize: "16px" }}>({token.Reviews.length} Reviews)</p></span>
 			                    </Col>
-			                    <Col xs={4} >
+			                    <Col xs={4} md={3}>
 			                    	{(token.score_overall > 50) ?
-			                    		<p style={{ fontSize: "16px" }}><Label className="inline" bsStyle="info">
+			                    		<p style={{ fontSize: "16px" }}><Label className="inline trusted">
                                                 <Glyphicon glyph="ok-circle" /> Trusted
                                             </Label></p> : 
-                                        <p style={{ fontSize: "16px" }}><Label className="inline" bsStyle="danger">
+                                        <p style={{ fontSize: "16px" }}><Label className="inline not-trusted">
                                                 <Glyphicon glyph="remove-circle" /> Not Trusted
                                             </Label></p>
 			                    	}
 			                    </Col>
-			                    <Col xs={2}>
-			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px" }}>{token.category}</p>
+			                    <Col xs={2} md={3}>
+			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px", fontWeight: "bold", marginLeft: "-5px" }}>{token.category}</p>
 			                    </Col>
 	                		</Row>
 	                	</div>
