@@ -1,8 +1,6 @@
 # Taptrust API
 
-
 ## Getting Started
-
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
@@ -15,13 +13,12 @@ $ cd taptrust
 
 The backend server uses Node.js, Express and PostgreSQL.
 
-1. Set `DATABASE_URL` environment variable to your postgres development database. You can do that from the command line with `export DATABASE_URL={DATABASE_URL}`. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
+1. Copy `.env.exmaple` file to `.env` and add environment variables. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run database locally).
 2. `npm install` to install dependencies.
-3. Run `sequelize db:migrate`.
+3. Run `npm run migrate` to migrate database.
 4. Initialize dev server with `npm run start:dev`, which starts at localhost:8000.
 
-
-#### Running Frontend Server 
+#### Running Frontend Server
 
 The frontend server uses React, webpack, and Node.js.
 
@@ -29,13 +26,13 @@ The frontend server uses React, webpack, and Node.js.
 2. `npm install`
 3. Run`npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`.
 
-
 #### Post first token/review
 
-* With database server and frontend server running, you can POST your first token at `localhost:8080/tokenform`. 
+* With database server and frontend server running, you can POST your first token at `localhost:8080/tokenform`.
 * After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the id of the token that you want to review.
 
-#### API 
+#### API
+
 In addition, you can `GET, POST, PUT, DELETE` at these routes:
 
 POST:
@@ -62,48 +59,47 @@ DELETE:
 
 #### Tokens:
 
-| Field Names   			| Field Type    | Description      |
-| -------------				|-------------| -----------------	|
-| id     					| *Integer* 	| Automatically generated id for a given token	|
-| name     					| *String* 		| The name of the token 	       |
-| category     				| *String*      | A token's given category (Utilities, Social, General, ect).|
-| description 				| *Text*     	| A longer description of the token and it's unique qualities.|
-| age           			| *String*		| The age of the token since it's creation (In years, months).|
-| symbol					| *String*		| The token's abbreviated symbol, eg. ETH or LTC. |
-| website					| *String*		| The website of the token, leaving off 'http://' (eg. taptrust.com).|
-| founders					| *String*		| A single founder, or a single string of founders separated by commas.|
-| score_overall     		| *Integer* 	| The average of all of a token's score_overall reviews. **Entered automatically**|
-| score_transparency     	| *Integer*     | The average of all of a token's score_transparency reviews. **Entered automatically**|
-| score_governance 			| *Integer*     | The average of all of a token's score_governance reviews. **Entered automatically**|
-| score_legal          		| *Integer*		| The average of all of a token's score_legal reviews. **Entered automatically**|
-| score_functionality		| *Integer*		| The average of all of a token's score_functionality reviews. **Entered automatically**|
-| createdAt    				| *Date* 		| Automatically generated datetime that the token was created 	|
-| updatedAt    				| *Date* 		| Automatically generated datetime that the token was last updated 	|
+| Field Names         | Field Type | Description                                                                            |
+| ------------------- | ---------- | -------------------------------------------------------------------------------------- |
+| id                  | _Integer_  | Automatically generated id for a given token                                           |
+| name                | _String_   | The name of the token                                                                  |
+| category            | _String_   | A token's given category (Utilities, Social, General, ect).                            |
+| description         | _Text_     | A longer description of the token and it's unique qualities.                           |
+| age                 | _String_   | The age of the token since it's creation (In years, months).                           |
+| symbol              | _String_   | The token's abbreviated symbol, eg. ETH or LTC.                                        |
+| website             | _String_   | The website of the token, leaving off 'http://' (eg. taptrust.com).                    |
+| founders            | _String_   | A single founder, or a single string of founders separated by commas.                  |
+| score_overall       | _Integer_  | The average of all of a token's score_overall reviews. **Entered automatically**       |
+| score_transparency  | _Integer_  | The average of all of a token's score_transparency reviews. **Entered automatically**  |
+| score_governance    | _Integer_  | The average of all of a token's score_governance reviews. **Entered automatically**    |
+| score_legal         | _Integer_  | The average of all of a token's score_legal reviews. **Entered automatically**         |
+| score_functionality | _Integer_  | The average of all of a token's score_functionality reviews. **Entered automatically** |
+| createdAt           | _Date_     | Automatically generated datetime that the token was created                            |
+| updatedAt           | _Date_     | Automatically generated datetime that the token was last updated                       |
 
-
-The above fields should be sent in POST/PUT requests using *x-www-form-urlencoded params*.
+The above fields should be sent in POST/PUT requests using _x-www-form-urlencoded params_.
 
 **All token score fields will be automatically entered once a review for the coin is POSTed. They will be `null` until then.**
 
 #### Reviews:
 
-| Field Names   		| Field Type    | Description      |
-| -------------			|-------------| -----------------	|
-| id     					| *Integer* 	| Automatically generated id for a given review	|
-| tokenId     				| *Integer* 	| id of the token to which this review corresponds. Generated from URL during POST request	|
-| name     				| *String* 		| The name of the person leaving a review.	       |
-| review     			| *Text*      	| A longer format review of a given token, minimum 100 characters.|
-| url 					| *String*     	| Url for a website of the reviewer. (Personal website, Medium, Twitter, ect)|
-| score_overall     	| *Integer*		| Average of all other scores. **Automatically entered after other scores are entered**|
-| score_transparency	| *Integer*		| A score for a given token based on it's transparency, 0-100. |
-| score_legal			| *Integer*		| A score for a given token based on it's legal status, 0-100. |
-| score_functionality	| *Integer*		| A score for a given token based on it's functionality, 0-100.| 
-| score_governance		| *Integer*		| A score for a given token based on it's governance, 0-100.   | 
-| createdAt    				| *Date* 		| Automatically generated datetime that the review was created 	|
-| updatedAt    				| *Date* 		| Automatically generated datetime that the review was last updated 	|
+| Field Names         | Field Type | Description                                                                              |
+| ------------------- | ---------- | ---------------------------------------------------------------------------------------- |
+| id                  | _Integer_  | Automatically generated id for a given review                                            |
+| tokenId             | _Integer_  | id of the token to which this review corresponds. Generated from URL during POST request |
+| name                | _String_   | The name of the person leaving a review.                                                 |
+| review              | _Text_     | A longer format review of a given token, minimum 100 characters.                         |
+| url                 | _String_   | Url for a website of the reviewer. (Personal website, Medium, Twitter, ect)              |
+| score_overall       | _Integer_  | Average of all other scores. **Automatically entered after other scores are entered**    |
+| score_transparency  | _Integer_  | A score for a given token based on it's transparency, 0-100.                             |
+| score_legal         | _Integer_  | A score for a given token based on it's legal status, 0-100.                             |
+| score_functionality | _Integer_  | A score for a given token based on it's functionality, 0-100.                            |
+| score_governance    | _Integer_  | A score for a given token based on it's governance, 0-100.                               |
+| createdAt           | _Date_     | Automatically generated datetime that the review was created                             |
+| updatedAt           | _Date_     | Automatically generated datetime that the review was last updated                        |
 
 ### Testing:
 
-1. Set `TESTDB_URL` environment variable to your postgres development database. You can do that from the command line with `export TESTDB_URL={TESTDB_URL}`. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
+1. Set `NODE_ENV` variable to `test` and `TEST_DB_URL` variable to your postgres test database in `.env` file. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
 2. Run `sequelize db:migrate --env test` to set up a replica of your development database on the test database.
 3. Run `npm test`.
