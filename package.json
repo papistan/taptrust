@@ -7,7 +7,7 @@
     "start:dev": "nodemon ./app",
     "migrate": "sequelize db:migrate",
     "test":
-      "NODE_ENV=test npm run migrate && NODE_ENV=test mocha --recursive --timeout 10000"
+      "NODE_ENV=test npm run migrate && NODE_ENV=test mocha --recursive --timeout 10000 --exit"
   },
   "keywords": [],
   "author": "",
