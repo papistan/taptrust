@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -19,8 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Require routes into the application.
 require('./server/routes')(app);
-app.get('*', (req, res) => res.status(200).send({
-  message: 'Try a different route.',
-}));
+app.get('*', (req, res) =>
+  res.status(200).send({
+    message: 'Try a different route.',
+  })
+);
 
 module.exports = app;
