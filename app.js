@@ -1,9 +1,11 @@
 const express = require('express');
+const http = require('http');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
+
 // Set up the express app
 const app = express();
 
@@ -24,5 +26,10 @@ app.get('*', (req, res) =>
     message: 'Try a different route.',
   })
 );
+
+const port = parseInt(process.env.PORT, 10) || 8000;
+const server = http.createServer(app);
+
+server.listen(port);
 
 module.exports = app;
