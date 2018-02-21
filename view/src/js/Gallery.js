@@ -80,7 +80,7 @@ class Gallery extends Component {
 			                    	}
 			                    </Col>
 			                    <Col xs={2} md={3}>
-			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px", fontWeight: "bold", marginLeft: "-5px" }}>{token.category}</p>
+			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px", fontWeight: "bold", marginLeft: "-5px", textTransform: "capitalize" }}>{token.category}</p>
 			                    </Col>
 	                		</Row>
 	                	</div>
