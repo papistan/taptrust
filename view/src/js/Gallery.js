@@ -72,10 +72,10 @@ class Gallery extends Component {
 			                    <Col xs={4} md={3}>
 			                    	{(token.score_overall > 50) ?
 			                    		<p style={{ fontSize: "16px" }}><Label className="inline trusted">
-                                                <Glyphicon glyph="ok-circle" /> Trusted
+                                                <Glyphicon glyph="ok-sign" /> Trusted
                                             </Label></p> : 
                                         <p style={{ fontSize: "16px" }}><Label className="inline not-trusted">
-                                                <Glyphicon glyph="remove-circle" /> Not Trusted
+                                                <Glyphicon glyph="remove-sign" /> Not Trusted
                                             </Label></p>
 			                    	}
 			                    </Col>
