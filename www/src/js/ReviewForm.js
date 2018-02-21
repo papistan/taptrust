@@ -1,26 +1,59 @@
 import React, { Component } from 'react';
 import { Grid, Button } from 'react-bootstrap';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import { createReviewOfToken } from './api';
 
 class ReviewForm extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      name: '',
+      url: '',
+      review: '',
+      score_transparency: 0,
+      score_governance: 0,
+      score_legal: 0,
+      score_functionality: 0,
+    };
   }
 
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const { match: { params: { tokenId } } } = this.props;
+
+    createReviewOfToken(tokenId, this.state).then(() => {
+      // TODO: Add callback after success
+    });
+  };
+
   render() {
-    const tokenId = this.props.match.params.tokenId;
-    const postUrl = 'http://localhost:8000/api/tokens/' + tokenId + '/reviews';
+    const { match: { params: { tokenId } } } = this.props;
+
     return (
       <div>
         <Grid>
           <h2>Post Review</h2>
           <p>for token with tokenId: {tokenId}</p>
-          <form action={postUrl} method="POST">
+
+          <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                onChange={this.handleChange}
+              />
             </div>
+
             <div>
               <label htmlFor="url">Personal Website/Blog:</label>
               <p className="inline">http://</p>
@@ -30,8 +63,10 @@ class ReviewForm extends Component {
                 id="url"
                 name="url"
                 required
+                onChange={this.handleChange}
               />
             </div>
+
             <div>
               <label htmlFor="review">Review:</label>
               <textarea
@@ -41,6 +76,7 @@ class ReviewForm extends Component {
                 id="review"
                 name="review"
                 required
+                onChange={this.handleChange}
               />
             </div>
 
@@ -54,6 +90,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                onChange={this.handleChange}
               />
             </div>
 
@@ -66,6 +103,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                onChange={this.handleChange}
               />
             </div>
 
@@ -78,6 +116,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                onChange={this.handleChange}
               />
             </div>
 
@@ -90,8 +129,10 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                onChange={this.handleChange}
               />
             </div>
+
             <Button className="btn btn-primary centerButton" type="submit">
               Send
             </Button>
