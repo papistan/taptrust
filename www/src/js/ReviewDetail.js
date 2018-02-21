@@ -9,8 +9,9 @@ import {
   ProgressBar,
   Glyphicon,
 } from 'react-bootstrap';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import { getReview } from './api';
 import Loading from './Loading';
 
 class ReviewDetail extends Component {
@@ -24,12 +25,11 @@ class ReviewDetail extends Component {
   }
 
   componentDidMount() {
-    const reviewId = this.props.match.params.reviewId;
-    const API = 'http://localhost:8000/api/reviews/' + reviewId;
-    axios.get(API).then(res => {
-      const api = res.data;
+    const { match: { params: { reviewId } } } = this.props;
+
+    getReview().then(res => {
       this.setState({
-        api: api,
+        api: res.data,
         loading: false,
       });
     });

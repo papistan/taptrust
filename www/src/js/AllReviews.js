@@ -9,8 +9,9 @@ import {
   ProgressBar,
   Glyphicon,
 } from 'react-bootstrap';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import { getToken } from './api';
 import Loading from './Loading';
 
 class AllReviews extends Component {
@@ -24,12 +25,11 @@ class AllReviews extends Component {
   }
 
   componentDidMount() {
-    const currentToken = this.props.match.params.name;
-    const API = 'http://localhost:8000/api/tokens/' + currentToken;
-    axios.get(API).then(res => {
-      const api = res.data;
+    const { match: { params: { name: tokenId } } } = this.props;
+
+    getToken(tokenId).then(res => {
       this.setState({
-        api: api,
+        api: res.data,
         loading: false,
       });
     });

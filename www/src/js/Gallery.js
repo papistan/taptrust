@@ -9,11 +9,10 @@ import {
   Glyphicon,
   Label,
 } from 'react-bootstrap';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Loading from './Loading';
 
-const API = 'http://localhost:8000/api/tokens/';
+import { getAllTokens } from './api';
+import Loading from './Loading';
 
 const Navigation = () => {
   return (
@@ -45,10 +44,9 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    axios.get(API).then(res => {
-      const api = res.data;
+    getAllTokens().then(res => {
       this.setState({
-        api: api,
+        api: res.data,
         loading: false,
       });
     });
