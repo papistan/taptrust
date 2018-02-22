@@ -162,7 +162,7 @@ class Profile extends Component {
             					</Row>
             				</div>
         					<Row>
-        						<Col sm={4} xsOffset={8}>
+        						<Col style={{textAlign: "right"}} sm={4} xsOffset={8}>
         							<Link 
         								style={{ color: 'grey', fontWeight: 'bold' }}
         								to={'/' + token.name + '/reviews'}>
