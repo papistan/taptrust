@@ -105,6 +105,10 @@ label {
   height: 2rem;
 }
 
+.review-box-words {
+  word-break: break-all;
+}
+
 .vertical-line { 
   border:         none;
   border-right:   1px solid rgb(77, 76, 76);

@@ -115,7 +115,7 @@ class Profile extends Component {
             						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Functionality: <b>{token.score_functionality}%</b></p></span>
             					</Col>
             				</Row>
-            				<Row className="flex-no-wrap ">
+            				<Row className="flex-no-wrap">
             					<Col sm={7}>
             						<ProgressBar bsStyle="warning" now={token.score_governance} />
             					</Col>
@@ -124,35 +124,35 @@ class Profile extends Component {
             					</Col>
             				</Row>
             				<div className='review-div'>
-            					<Row className="no-wrap">
+            					<Row className="flex-no-wrap">
             						<Col sm={7}>
             							<p style={{ fontSize: '30px' }}>{lastReview.score_overall}</p>
             							<p style={{ color: 'grey' }}>Overall Score</p>
             						</Col>
-            						<Col className="no-wrap" sm={5}>
+            						<Col className="flex-no-wrap" sm={5}>
             							<h4>{lastReview.name}</h4>
             							<p>{months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
             						</Col>
             					</Row>
-            					<Row className="no-wrap">
+            					<Row className="flex-no-wrap review-box-words">
             						<Col sm={3}>
             							<p>{lastReview.score_transparency}</p>
-            							<p style={{ color: 'grey' }}>Transparency</p>
+            							<p >Transparency</p>
             						</Col>
             						<Col sm={3}>
             							<p>{lastReview.score_legal}</p>
-            							<span className="text-nowrap"><p style={{ color: 'grey' }}>Legal Status</p></span>
+            							<p>Legal Status</p>
             						</Col>
             						<Col sm={3}>
             							<p>{lastReview.score_functionality}</p>
-            							<p style={{ color: 'grey' }}>Functionality</p>
+            							<p>Functionality</p>
             						</Col>
             						<Col sm={3}>
             							<p>{lastReview.score_governance}</p>
-            							<p style={{ color: 'grey' }}>Governance</p>
+            							<p>Governance</p>
             						</Col>
             					</Row>
-            					<Row className="no-wrap">
+            					<Row className="flex-no-wrap">
             						<Col sm={12}>
                                             {(lastReview.review.length > 250) ?
                                                 <p style={{ color: 'grey' }}>{lastReview.review.substr(0,250) + "..."}</p> :
