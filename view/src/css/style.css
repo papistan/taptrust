@@ -88,7 +88,10 @@ label {
   margin: 0;
   padding: 0;
 }
-
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
 .grey-line {
   border-left: 1px solid rgb(211, 211, 211);
   height: 10px;

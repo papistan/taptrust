@@ -70,21 +70,20 @@ class Profile extends Component {
             				</Row>
             				<hr></hr>
             				<Row>
-            					<Col sm={8} className="inline">
-            						<div>
-            							<h2 className='inline' style={{ fontWeight: 'bold' }}>{token.score_overall} </h2>
-            							<p className='inline' style={{ color: 'grey', fontWeight:"bold" }}>/100 overall score</p>
-            						</div>
-            					</Col>
-            					<Col sm={4} className="inline">
-            						{(token.score_overall > 50) ?
-        	                    		<p style={{ fontSize: "16px" }}><Label className="trusted">
+            					<Col sm={10} className="inline">
+									<div className="space-between">
+            							<span><h2 className='inline' style={{ fontWeight: 'bold' }}>{token.score_overall} </h2>
+            							<p className='inline' style={{ color: 'grey', fontWeight:"bold" }}>/100 overall score</p></span>
+										
+										{(token.score_overall > 50) ?
+        	                    		<p style={{ fontSize: "16px", display: "inline", textAlign: "right" }}><Label className="trusted">
                                                 <Glyphicon glyph="ok-circle" /> Trusted
                                             </Label></p> : 
-                                        <p style={{ fontSize: "16px" }}><Label className="not-trusted">
+                                        <p style={{ fontSize: "16px", display: "inline", textAlign: "right" }}><Label className="not-trusted">
                                                 <Glyphicon glyph="remove-circle" /> Not Trusted
                                             </Label></p>
-        	                    	}
+										}
+									</div>
             					</Col>
             				</Row>
             				<Row>
