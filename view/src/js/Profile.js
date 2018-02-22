@@ -76,11 +76,11 @@ class Profile extends Component {
             							<p className='inline' style={{ color: 'grey', fontWeight:"bold" }}>/100 overall score</p></span>
 										
 										{(token.score_overall > 50) ?
-        	                    		<p style={{ fontSize: "16px", display: "inline", textAlign: "right" }}><Label className="trusted">
-                                                <Glyphicon glyph="ok-circle" /> Trusted
+        	                    		<p style={{ fontSize: "16px", display: "inline" }}><Label className="trusted">
+                                                <Glyphicon glyph="ok-sign" /> Trusted
                                             </Label></p> : 
-                                        <p style={{ fontSize: "16px", display: "inline", textAlign: "right" }}><Label className="not-trusted">
-                                                <Glyphicon glyph="remove-circle" /> Not Trusted
+                                        <p style={{ fontSize: "16px", display: "inline" }}><Label className="not-trusted">
+                                                <Glyphicon glyph="remove-sign" /> Not Trusted
                                             </Label></p>
 										}
 									</div>
@@ -91,7 +91,7 @@ class Profile extends Component {
             						<p style={{ fontWeight: "bold" }}>From {reviews.length} User Reviews</p>
             					</Col>
             				</Row>
-            				<Row>
+            				<Row className="no-wrap">
             					<Col sm={7}>
             						<ProgressBar bsStyle="warning" now={token.score_transparency} />
             					</Col>
@@ -99,7 +99,7 @@ class Profile extends Component {
             						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Transparency: <b>{token.score_transparency}%</b></p></span>
             					</Col>
             				</Row>
-            				<Row>
+            				<Row className="no-wrap">
             					<Col sm={7}>
             						<ProgressBar bsStyle="warning" now={token.score_legal} />
             					</Col>
@@ -107,7 +107,7 @@ class Profile extends Component {
             						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Legal Status: <b>{token.score_legal}%</b></p></span>
             					</Col>
             				</Row>
-            				<Row>
+            				<Row className="no-wrap">
             					<Col sm={7}>
             						<ProgressBar bsStyle="warning" now={token.score_functionality} />
             					</Col>
@@ -115,7 +115,7 @@ class Profile extends Component {
             						<span className="text-nowrap inline"><p style={{ color: '#FFCC11' }}> Functionality: <b>{token.score_functionality}%</b></p></span>
             					</Col>
             				</Row>
-            				<Row>
+            				<Row className="no-wrap">
             					<Col sm={7}>
             						<ProgressBar bsStyle="warning" now={token.score_governance} />
             					</Col>
