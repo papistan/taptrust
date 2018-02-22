@@ -62,25 +62,25 @@ class Gallery extends Component {
 	    							}
 	    						</Col>
 		    				</Row>
-			                <Row>
-			                    <Col xs={2} md={3}>
-			                    		<p className="inline" style={{ fontWeight: 'bolder', fontSize: "18px" }}>{token.score_overall}%</p>
+			                <Row className="review-data-row">
+			                    <Col className="review-data-item1" sm={1} md={3}>
+			                    		<p className="inline" style={{ fontWeight: 'bold', fontSize: "18px" }}>{token.score_overall}%</p>
 			                    </Col>
-			                    <Col xs={4} md={3}>
-			                    	<span className="text-nowrap inline"><p style={{ color: '#d3d3d3', fontWeight: "bold", fontSize: "16px" }}>({token.Reviews.length} Reviews)</p></span>
+			                    <Col className="review-data-item2" sm={3} md={3}>
+			                    	<span className="text-nowrap inline"><p style={{ color: '#d3d3d3',  fontSize: "16px" }}>({token.Reviews.length} Reviews)</p></span>
 			                    </Col>
-			                    <Col xs={4} md={3}>
+			                    <Col className="review-data-item5" sm={4} md={3}>
 			                    	{(token.score_overall > 50) ?
-			                    		<p style={{ fontSize: "16px", borderRight: "1.5px solid rgb(211, 211, 211)", height: "100%" }}><Label className="inline trusted">
+			                    		<p style={{ fontSize: "16px" }}><Label className="inline trusted">
                                                 <Glyphicon glyph="ok-sign" /> Trusted
                                             </Label></p> : 
-                                        <p style={{ fontSize: "16px", borderRight: "1.5px solid rgb(211, 211, 211)", height: "100%" }}><Label className="inline not-trusted">
+                                        <p style={{ fontSize: "16px" }}><Label className="inline not-trusted">
                                                 <Glyphicon glyph="remove-sign" /> Not Trusted
                                             </Label></p>
 			                    	}
 			                    </Col>
-			                    <Col xs={2} md={3}>
-			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px", fontWeight: "bold", marginLeft: "-5px", textTransform: "capitalize" }}>{token.category}</p>
+			                    <Col className="review-data-item2 grey-line" sm={1} md={3}>
+			                    	<p className="inline" style={{ color: '#b19cd9', fontSize: "16px", fontWeight: "bold", paddingLeft: "10%", textTransform: "capitalize" }}>{token.category}</p>
 			                    </Col>
 	                		</Row>
 	                	</div>
