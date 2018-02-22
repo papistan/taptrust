@@ -1,31 +1,25 @@
 import axios from 'axios';
 
-export const createToken = payload => {
-  const url = 'http://localhost:8000/api/tokens';
+const getApiClient = (options = {}) => {
+  const headers = {};
 
-  return axios.post(url, payload);
+  if (options.token) {
+    headers['Authorization'] = `Bearer ${options.token}`;
+  }
+
+  return axios.create({
+    baseURL: process.env.API_BASE_URL,
+    headers,
+  });
 };
 
-export const getAllTokens = () => {
-  const url = 'http://localhost:8000/api/tokens';
+export const createToken = payload => getApiClient().post('/tokens', payload);
 
-  return axios.get(url);
-};
+export const getAllTokens = () => getApiClient().get('/tokens');
 
-export const getToken = tokenId => {
-  const url = `http://localhost:8000/api/tokens/${tokenId}`;
+export const getToken = tokenId => getApiClient().get(`/tokens/${tokenId}`);
 
-  return axios.get(url);
-};
+export const getReview = reviewId => getApiClient().get(`/reviews/${reviewId}`);
 
-export const getReview = reviewId => {
-  const url = `http://localhost:8000/api/reviews/${reviewId}`;
-
-  return axios.get(url);
-};
-
-export const createReviewOfToken = (tokenId, payload) => {
-  const url = `http://localhost:8000/api/tokens/${tokenId}/reviews`;
-
-  return axios.post(url, payload);
-};
+export const createReviewOfToken = (tokenId, payload) =>
+  getApiClient().post(`/tokens/${tokenId}/reviews`, payload);

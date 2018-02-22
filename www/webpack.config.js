@@ -1,32 +1,35 @@
 // We are using node's native package 'path'
 // https://nodejs.org/api/path.html
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 // Constant with our paths
 const paths = {
-  DIST: path.resolve(__dirname, 'dist'),
-  SRC: path.resolve(__dirname, 'src'),
-  JS: path.resolve(__dirname, 'src/js'),
+  dist: path.resolve(__dirname, 'dist'),
+  src: path.resolve(__dirname, 'src'),
+  js: path.resolve(__dirname, 'src/js'),
 };
 
 // Webpack configuration
 module.exports = {
-  entry: path.join(paths.JS, 'app.js'),
+  entry: path.join(paths.js, 'app.js'),
   output: {
-    path: paths.DIST,
+    path: paths.dist,
     filename: 'app.bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   // Tell webpack to use html plugin
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(paths.SRC, 'index.html'),
+      template: path.join(paths.src, 'index.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
+    new Dotenv({
+      safe: true,
+    }),
   ],
 
   // Loaders configuration
@@ -36,29 +39,27 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
+        use: ['babel-loader'],
       },
 
-// CSS loader to CSS files -> ADDED IN THIS STEP
-// Files will get handled by css loader and then passed to the extract text plugin
-// which will write it to the file we defined above
-      
+      // CSS loader to CSS files -> ADDED IN THIS STEP
+      // Files will get handled by css loader and then passed to the extract text plugin
+      // which will write it to the file we defined above
+
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           use: 'css-loader',
         }),
-      }
+      },
     ],
-  },    
+  },
 
   devServer: {
-     historyApiFallback: true
-   },
+    historyApiFallback: true,
+  },
 
-  // Enable importing JS files without specifying their's extenstion
+  // Enable importing js files without specifying their's extenstion
   //
   // So we can write:
   // import MyComponent from './my-component';
