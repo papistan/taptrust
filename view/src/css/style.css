@@ -101,6 +101,12 @@ label {
   border-left: 1px solid rgb(211, 211, 211);
   height: 10px;
 }
+
+.darkgrey-line {
+  border-right: 1px solid rgb(73, 72, 72);
+  padding-right: 2px;
+}
+
 .progress {
   height: 2rem;
 }

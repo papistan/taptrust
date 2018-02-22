@@ -124,9 +124,9 @@ class Profile extends Component {
             					</Col>
             				</Row>
             				<div className='review-div'>
-            					<Row className="flex-no-wrap">
+            					<Row className="flex-no-wrap ">
             						<Col sm={7}>
-            							<p style={{ fontSize: '30px' }}>{lastReview.score_overall}</p>
+            							<p style={{ fontSize: '30px', fontWeight: "bold" }}>{lastReview.score_overall}</p>
             							<p style={{ color: 'grey' }}>Overall Score</p>
             						</Col>
             						<Col className="flex-no-wrap" sm={5}>
@@ -135,20 +135,20 @@ class Profile extends Component {
             						</Col>
             					</Row>
             					<Row className="flex-no-wrap review-box-words">
-            						<Col sm={3}>
-            							<p>{lastReview.score_transparency}</p>
+            						<Col className="darkgrey-line" sm={3}>
+            							<p style={{ fontWeight: "bold" }}>{lastReview.score_transparency}</p>
             							<p >Transparency</p>
             						</Col>
-            						<Col sm={3}>
-            							<p>{lastReview.score_legal}</p>
+            						<Col className="darkgrey-line" sm={3}>
+            							<p style={{ fontWeight: "bold" }}>{lastReview.score_legal}</p>
             							<p>Legal Status</p>
             						</Col>
-            						<Col sm={3}>
-            							<p>{lastReview.score_functionality}</p>
+            						<Col className="darkgrey-line" sm={3}>
+            							<p style={{ fontWeight: "bold" }}>{lastReview.score_functionality}</p>
             							<p>Functionality</p>
             						</Col>
             						<Col sm={3}>
-            							<p>{lastReview.score_governance}</p>
+            							<p style={{ fontWeight: "bold" }}>{lastReview.score_governance}</p>
             							<p>Governance</p>
             						</Col>
             					</Row>
