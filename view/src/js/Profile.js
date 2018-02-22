@@ -61,8 +61,8 @@ class Profile extends Component {
             					<Col xs={10}><h2>{token.name}</h2></Col>
             				</Row>
             				<Row>
-            					<Col xs={10}><p style={{ color: '#b19cd9', fontSize: "16px" }}>Category: {token.category}</p>
-                                            <p style={{ color: '#b19cd9', marginTop: "-10px", fontSize: "16px" }}>age: {token.age}</p>
+            					<Col xs={10}><p style={{ color: '#b19cd9', fontSize: "16px",textTransform: "capitalize" }}>Category: {token.category}</p>
+                                            <p style={{ color: '#b19cd9', marginTop: "-10px", fontSize: "16px" }}>Age: {token.age}</p>
                                 </Col>
             				</Row>
             				<Row>
