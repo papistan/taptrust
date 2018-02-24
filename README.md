@@ -103,3 +103,52 @@ The above fields should be sent in POST/PUT requests using _x-www-form-urlencode
 1. Set `NODE_ENV` variable to `test` and `TEST_DB_URL` variable to your postgres test database in `.env` file. ([ElephantSQL](https://www.elephantsql.com/) has a sandbox postgres option if you don't want to run it locally).
 2. Run `sequelize db:migrate --env test` to set up a replica of your development database on the test database.
 3. Run `npm test`.
+
+### Deploying:
+
+### Updating the deployment:
+
+1. Push the updated code to `master` branch.
+
+```sh
+$ git push origin master
+```
+
+2. Connect to the server via SSH.
+
+You can connect on GCP console
+
+3. Go to the project folder.
+
+4. Pull the latest `master` branch.
+
+```sh
+$ git pull origin mastr
+```
+
+5. Install npm packages in backend app.
+
+```sh
+$ npm install
+```
+
+6. Install npm package in frontend app.
+
+```sh
+$ cd www
+$ npm install
+```
+
+7. Build the front-end app
+
+```sh
+$ npm run build
+```
+
+8. Restart pm2 processes
+
+```sh
+$ cd ..
+$ pm2 stop pm2config.json
+$ pm2 start pm2config.json
+```
