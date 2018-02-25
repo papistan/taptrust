@@ -120,6 +120,10 @@ You can connect on GCP console
 
 3. Go to the project folder.
 
+```
+$ cd /var/www/taptrust
+```
+
 4. Pull the latest `master` branch.
 
 ```sh
