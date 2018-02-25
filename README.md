@@ -123,7 +123,7 @@ You can connect on GCP console
 4. Pull the latest `master` branch.
 
 ```sh
-$ git pull origin mastr
+$ git pull origin master
 ```
 
 5. Install npm packages in backend app.
