@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "taptrust_api",
+      "script": "./app.js",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "8000"
+      }
+    }
+  ]
+}
