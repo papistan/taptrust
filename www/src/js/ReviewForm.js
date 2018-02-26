@@ -30,8 +30,8 @@ class ReviewForm extends Component {
 
     const { match: { params: { tokenId } } } = this.props;
 
-    createReviewOfToken(tokenId, this.state).then(() => {
-      res.status === 201 ? this.setState({ redirectToNewPage: true}) : this.setState({ error: 'Error, try again' })
+    createReviewOfToken(tokenId, this.state).then((res) => {
+      res.status === 200 ? this.setState({ redirectToNewPage: true}) : this.setState({ error: 'Error, try again' })
     });
   };
 
