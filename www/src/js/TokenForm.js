@@ -20,7 +20,7 @@ class TokenForm extends Component {
   }
 
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -46,6 +46,7 @@ class TokenForm extends Component {
                 id="name"
                 name="name"
                 required
+                value={this.state.name}
                 onChange={this.handleChange}
               />
             </div>
@@ -57,6 +58,7 @@ class TokenForm extends Component {
                 id="category"
                 name="category"
                 required
+                value={this.state.category}
                 onChange={this.handleChange}
               />
             </div>
@@ -68,6 +70,7 @@ class TokenForm extends Component {
                 id="age"
                 name="age"
                 required
+                value={this.state.age}
                 onChange={this.handleChange}
               />
             </div>
@@ -79,6 +82,7 @@ class TokenForm extends Component {
                 id="symbol"
                 name="symbol"
                 required
+                value={this.state.symbol}
                 onChange={this.handleChange}
               />
             </div>
@@ -92,6 +96,7 @@ class TokenForm extends Component {
                 id="website"
                 name="website"
                 required
+                value={this.state.website}
                 onChange={this.handleChange}
               />
             </div>
@@ -103,6 +108,7 @@ class TokenForm extends Component {
                 id="founders"
                 name="founders"
                 required
+                value={this.state.founders}
                 onChange={this.handleChange}
               />
             </div>
@@ -116,6 +122,8 @@ class TokenForm extends Component {
                 name="description"
                 minLength="25"
                 required
+                value={this.state.description}
+                onChange={this.handleChange}
               />
             </div>
 
