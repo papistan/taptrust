@@ -1,7 +1,8 @@
 body {
 	font-size: 15px;
 	padding: 40px 5px 20px 5px;
-  font-family: 'Rubik', sans-serif;
+  font-family: Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 300;
 }
 
 h2 {
@@ -57,17 +58,66 @@ label {
 .trusted {
   background-color: #64D3E2 !important;
   padding: 5px 15px;
+  color: white;
 }
 
 .not-trusted {
   background-color: #FF1493 !important;
   padding: 5px 5px;
+  color: white;
+}
+
+.review-data-row {
+  margin: 0;
+  padding: 0;
+
+}
+.review-data-item1 {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.review-data-item2 {
+  flex: 2;
+  margin: 1%;
+  padding: 0;
+}
+.review-data-item5 {
+  flex: 5;
+  margin: 0;
+  padding: 0;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.grey-line {
+  border-left: 1px solid rgb(211, 211, 211);
+  height: 10px;
+}
+
+.darkgrey-line {
+  border-right: 1px solid rgb(73, 72, 72);
+  padding-right: 2px;
+}
+
+.progress {
+  height: 2rem;
+}
+
+.review-box-words {
+  word-break: break-all;
 }
 
 .vertical-line { 
   border:         none;
-  border-left:    1px solid hsla(200, 10%, 50%,100);
-  height:         10px;
+  border-right:   1px solid rgb(77, 76, 76);
   width:          1px;       
 }
 
@@ -186,3 +236,5 @@ label {
     transform: rotate(360deg);
   }
 }
+
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
