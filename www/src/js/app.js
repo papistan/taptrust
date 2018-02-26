@@ -9,6 +9,7 @@ import AllReviews from './AllReviews';
 import ReviewDetail from './ReviewDetail';
 import TokenForm from './TokenForm';
 import ReviewForm from './ReviewForm';
+import Header from './Header';
 
 import '../css/style.css';
 
