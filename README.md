@@ -22,7 +22,7 @@ The backend server uses Node.js, Express and PostgreSQL.
 
 The frontend server uses React, webpack, and Node.js.
 
-1. The frontend is in the `view` folder. Navigate to this folder with `cd view`.
+1. The frontend is in the `www` folder. 
 2. `npm install`
 3. Run`npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`.
 
