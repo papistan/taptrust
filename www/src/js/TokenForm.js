@@ -47,7 +47,7 @@ class TokenForm extends Component {
 
       <div>
         <Grid>
-          <p>{this.state.error}</p>
+          <p style={{ color: 'red' }}>{this.state.error}</p>
           <h2>Post Token</h2>
           <form onSubmit={this.handleSubmit}>
             <div>
