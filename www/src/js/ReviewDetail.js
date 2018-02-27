@@ -27,7 +27,7 @@ class ReviewDetail extends Component {
   componentDidMount() {
     const { match: { params: { reviewId } } } = this.props;
 
-    getReview().then(res => {
+    getReview(reviewId).then(res => {
       this.setState({
         api: res.data,
         loading: false,
@@ -78,12 +78,12 @@ class ReviewDetail extends Component {
           <div>
             <Grid>
               <Row>
-                <Col xs={10}>
+                <Col sm={10}>
                   <h2>{reviews.name}</h2>
                 </Col>
               </Row>
               <Row>
-                <Col xs={10}>
+                <Col sm={10}>
                   <h4 style={{ color: 'gray' }}>
                     {months[date.getMonth()]} {date.getDate()},{' '}
                     {date.getFullYear()}
@@ -91,7 +91,7 @@ class ReviewDetail extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={10}>
+                <Col sm={10}>
                   <a href={url} style={{ fontWeight: 'bold', color: 'gray' }}>
                     {reviews.url}
                   </a>
@@ -99,7 +99,7 @@ class ReviewDetail extends Component {
               </Row>
               <hr />
               <Row>
-                <Col xs={10}>
+                <Col sm={10}>
                   <div style={{ marginBottom: '20px' }}>
                     <h2 className="inline" style={{ fontWeight: 'bold' }}>
                       {reviews.score_overall}{' '}
@@ -111,13 +111,13 @@ class ReviewDetail extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}>
+                <Col sm={6}>
                   <ProgressBar
                     bsStyle="warning"
                     now={reviews.score_transparency}
                   />
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p style={{ color: '#FFCC11' }}>
                     {' '}
                     Transparency: <b>{reviews.score_transparency}%</b>
@@ -125,10 +125,10 @@ class ReviewDetail extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}>
+                <Col sm={6}>
                   <ProgressBar bsStyle="warning" now={reviews.score_legal} />
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p style={{ color: '#FFCC11' }}>
                     {' '}
                     Legal: <b>{reviews.score_legal}%</b>
@@ -136,13 +136,13 @@ class ReviewDetail extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}>
+                <Col sm={6}>
                   <ProgressBar
                     bsStyle="warning"
                     now={reviews.score_functionality}
                   />
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p style={{ color: '#FFCC11' }}>
                     {' '}
                     Functionality: <b>{reviews.score_functionality}%</b>
@@ -150,13 +150,13 @@ class ReviewDetail extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={6}>
+                <Col sm={6}>
                   <ProgressBar
                     bsStyle="warning"
                     now={reviews.score_governance}
                   />
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p style={{ color: '#FFCC11' }}>
                     {' '}
                     Governance: <b>{reviews.score_governance}%</b>
@@ -165,7 +165,7 @@ class ReviewDetail extends Component {
               </Row>
               <hr />
               <Row>
-                <Col xs={12}>
+                <Col sm={12}>
                   <div dangerouslySetInnerHTML={fullReview()} />
                 </Col>
               </Row>

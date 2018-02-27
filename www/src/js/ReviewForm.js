@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { createReviewOfToken } from './api';
 
@@ -16,6 +16,8 @@ class ReviewForm extends Component {
       score_governance: 0,
       score_legal: 0,
       score_functionality: 0,
+      redirectToNewPage: false,
+      error: ''
     };
   }
 
@@ -28,17 +30,23 @@ class ReviewForm extends Component {
 
     const { match: { params: { tokenId } } } = this.props;
 
-    createReviewOfToken(tokenId, this.state).then(() => {
-      // TODO: Add callback after success
+    createReviewOfToken(tokenId, this.state).then((res) => {
+      res.status === 200 ? this.setState({ redirectToNewPage: true}) : this.setState({ error: 'Error, try again' })
     });
   };
 
   render() {
     const { match: { params: { tokenId } } } = this.props;
 
+    if (this.state.redirectToNewPage) {
+      return (
+      <Redirect to="/"/>
+      )
+    }
     return (
       <div>
         <Grid>
+          <p style={{ color: 'red' }}>{this.state.error}</p>
           <h2>Post Review</h2>
           <p>for token with tokenId: {tokenId}</p>
 

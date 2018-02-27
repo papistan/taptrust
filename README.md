@@ -1,4 +1,4 @@
-# Taptrust API
+# Taptrust
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ The backend server uses Node.js, Express and PostgreSQL.
 
 The frontend server uses React, webpack, and Node.js.
 
-1. The frontend is in the `www` folder. 
+1. The frontend is in the `www` folder. In this folder, copy `.env.exmaple` file to `.env` and add environment variables. You can set `API_BASE_URL` to a remote server if you'd like to develop the frontend without making any backend changes. 
 2. `npm install`
 3. Run`npm start`. (Frontend has it's own package.json.). The frontend server runs on `localhost:8080`.
 
