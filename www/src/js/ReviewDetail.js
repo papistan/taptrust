@@ -27,7 +27,7 @@ class ReviewDetail extends Component {
   componentDidMount() {
     const { match: { params: { reviewId } } } = this.props;
 
-    getReview().then(res => {
+    getReview(reviewId).then(res => {
       this.setState({
         api: res.data,
         loading: false,
