@@ -147,7 +147,7 @@ class Profile extends Component {
             <Row>
               <Col sm={12}>
                 <p style={{ fontWeight: 'bold' }}>
-                  From {reviews.length} User Reviews
+                  From {reviews.length || 0} User Reviews
                 </p>
               </Col>
             </Row>
@@ -248,13 +248,14 @@ class Profile extends Component {
               </Row>
               <Row className="flex-no-wrap">
                 <Col sm={12}>
-                  {lastReview.review.length > 250 ? (
+                  { lastReview.review !== undefined ? 
+                    lastReview.review.length > 250 ? (
                     <p style={{ color: 'grey' }}>
                       {lastReview.review.substr(0, 250) + '...'}
                     </p>
                   ) : (
                     <p style={{ color: 'grey' }}> {lastReview.review}</p>
-                  )}
+                  ) : (<p style={{ color: 'grey' }}>No reviews</p>)}
                 </Col>
               </Row>
             </div>
@@ -264,7 +265,7 @@ class Profile extends Component {
                   style={{ color: 'grey', fontWeight: 'bold' }}
                   to={'/' + token.name + '/reviews'}
                 >
-                  See all {reviews.length} reviews
+                  See all {reviews.length || 0} reviews
                 </Link>
               </Col>
             </Row>
