@@ -1,4 +1,4 @@
-# Taptrust API
+# Taptrust
 
 ## Getting Started
 
