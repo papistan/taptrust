@@ -76,41 +76,39 @@ class AllReviews extends Component {
               style={{ color: 'black' }}
             >
               <div className="review-div">
-                <Row>
-                  <Col xs={8}>
-                    <p style={{ fontSize: '30px' }}>{reviews.score_overall}</p>
+                <Row className="flex-no-wrap ">
+                  <Col sm={8}>
+                    <p style={{ fontSize: '30px', fontWeight: 'bold' }}>{reviews.score_overall}</p>
                     <p style={{ color: 'grey' }}>Overall Score</p>
                   </Col>
-                  <Col xs={4}>
+                  <Col style={{ float: 'right' }} sm={4}>
                     <h4>{reviews.name}</h4>
-                    <p>
+                    <p style={{ color: 'grey'}}>
                       {months[date.getMonth()]} {date.getDate()},{' '}
                       {date.getFullYear()}
                     </p>
                   </Col>
                 </Row>
-                <Row>
-                  <Col xs={3}>
-                    <p>{reviews.score_transparency}</p>
-                    <p style={{ color: 'grey' }}>Transparency</p>
+                <Row className="flex-no-wrap review-box-words">
+                  <Col className="darkgrey-line" sm={3}>
+                    <p style={{ fontSize: '20px',fontWeight: "bold" }}>{reviews.score_transparency}</p>
+                    <p style={{ color: 'grey'}}>Transparency</p>
                   </Col>
-                  <Col xs={3}>
-                    <p>{reviews.score_legal}</p>
-                    <span className="text-nowrap">
-                      <p style={{ color: 'grey' }}>Legal Status</p>
-                    </span>
+                  <Col className="darkgrey-line" sm={3}>
+                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_legal}</p>
+                    <p style={{ color: 'grey'}}>Legal Status</p>
                   </Col>
-                  <Col xs={3}>
-                    <p>{reviews.score_functionality}</p>
-                    <p style={{ color: 'grey' }}>Functionality</p>
+                  <Col className="darkgrey-line" sm={3}>
+                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_functionality}</p>
+                    <p style={{ color: 'grey'}}>Functionality</p>
                   </Col>
-                  <Col xs={3}>
-                    <p>{reviews.score_governance}</p>
-                    <p style={{ color: 'grey' }}>Governance</p>
+                  <Col sm={3}>
+                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_governance}</p>
+                    <p style={{ color: 'grey'}}>Governance</p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={12}>
+                  <Col style={{ marginTop: '2%'}} sm={12}>
                     {reviews.review.length > 250 ? (
                       <p style={{ color: 'gray' }}>
                         {reviews.review.substr(0, 250) + '...'}
@@ -134,13 +132,13 @@ class AllReviews extends Component {
         <div>
           <Grid>
             <Row>
-              <Col xs={10}>
-                <h2>All Reviews</h2>
+              <Col sm={10}>
+                <h2 style={{ fontSize: '30px' }}>All Reviews</h2>
               </Col>
             </Row>
             <Row>
-              <Col xs={10}>
-                <p style={{ color: 'grey' }}>{reviews.length} total reviews</p>
+              <Col sm={10}>
+                <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>{reviews.length} total reviews</p>
               </Col>
             </Row>
           </Grid>
