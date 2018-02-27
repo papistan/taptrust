@@ -22,7 +22,7 @@ class ReviewForm extends Component {
   }
 
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -30,19 +30,22 @@ class ReviewForm extends Component {
 
     const { match: { params: { tokenId } } } = this.props;
 
-    createReviewOfToken(tokenId, this.state).then((res) => {
-      res.status === 200 ? this.setState({ redirectToNewPage: true}) : this.setState({ error: 'Error, try again' })
-    });
+    createReviewOfToken(tokenId, this.state)
+      .then(res => {
+        this.setState({ redirectToNewPage: true });
+      })
+      .catch(err => {
+        this.setState({ error: 'Error, try again' });
+      });
   };
 
   render() {
     const { match: { params: { tokenId } } } = this.props;
 
     if (this.state.redirectToNewPage) {
-      return (
-      <Redirect to="/"/>
-      )
+      return <Redirect to="/" />;
     }
+
     return (
       <div>
         <Grid>
@@ -58,6 +61,7 @@ class ReviewForm extends Component {
                 id="name"
                 name="name"
                 required
+                value={this.state.name}
                 onChange={this.handleChange}
               />
             </div>
@@ -71,6 +75,7 @@ class ReviewForm extends Component {
                 id="url"
                 name="url"
                 required
+                value={this.state.url}
                 onChange={this.handleChange}
               />
             </div>
@@ -84,6 +89,7 @@ class ReviewForm extends Component {
                 id="review"
                 name="review"
                 required
+                value={this.state.review}
                 onChange={this.handleChange}
               />
             </div>
@@ -98,6 +104,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_transparency}
                 onChange={this.handleChange}
               />
             </div>
@@ -111,6 +118,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_governance}
                 onChange={this.handleChange}
               />
             </div>
@@ -124,6 +132,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_legal}
                 onChange={this.handleChange}
               />
             </div>
@@ -137,6 +146,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_functionality}
                 onChange={this.handleChange}
               />
             </div>
