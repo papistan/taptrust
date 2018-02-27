@@ -28,23 +28,21 @@ class TokenForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const { match: { params: { tokenId } } } = this.props;
-
-    createToken(this.state).then((res) => {
-      res.status === 201 ? this.setState({ redirectToNewPage: true}) : this.setState({ error: 'Error, try again' })
-    });
+    createToken(this.state)
+      .then(res => {
+        this.setState({ redirectToNewPage: true });
+      })
+      .catch(err => {
+        this.setState({ error: 'Error, try again' });
+      });
   };
 
   render() {
-
     if (this.state.redirectToNewPage) {
-      return (
-      <Redirect to="/"/>
-      )
+      return <Redirect to="/" />;
     }
 
     return (
-
       <div>
         <Grid>
           <p style={{ color: 'red' }}>{this.state.error}</p>
