@@ -9,6 +9,7 @@ import AllReviews from './AllReviews';
 import ReviewDetail from './ReviewDetail';
 import TokenForm from './TokenForm';
 import ReviewForm from './ReviewForm';
+import Header from './Header';
 
 import '../css/style.css';
 
@@ -18,6 +19,7 @@ export default class App extends Component {
       <BrowserRouter>
         <ScrollToTop>
           <div>
+            <Header></Header>
             <div>
               <Switch>
                 <Route exact path="/" component={Gallery} />
