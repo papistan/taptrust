@@ -61,6 +61,12 @@ label {
   color: white;
 }
 
+.mid-trusted {
+  background-color: #FFC300 !important;
+  padding: 5px 15px;
+  color: white;
+}
+
 .not-trusted {
   background-color: #FF1493 !important;
   padding: 5px 5px;
@@ -115,10 +121,10 @@ label {
   word-break: break-all;
 }
 
-.vertical-line { 
+.vertical-line {
   border:         none;
   border-right:   1px solid rgb(77, 76, 76);
-  width:          1px;       
+  width:          1px;
 }
 
 /* Spinner */

@@ -71,6 +71,17 @@ class Gallery extends Component {
         </p>
       );
     }
+
+    if ((token.score_overall >= 50)&&(token.score_overall <= 80)){
+    trustedBadge = (
+      <p style={{ fontSize: '16px' }}>
+        <Label className="inline mid-trusted">
+          <Glyphicon glyph="question-sign" /> Moderate Risk
+        </Label>
+      </p>
+    );
+    }
+
       if (token.score_overall < 50){
       trustedBadge = (
         <p style={{ fontSize: '16px' }}>
