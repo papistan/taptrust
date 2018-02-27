@@ -72,7 +72,7 @@ class Gallery extends Component {
       );
     }
 
-    if ((token.score_overall >= 50)&&(token.score_overall <= 80)){
+    if (token.score_overall <= 80){
     trustedBadge = (
       <p style={{ fontSize: '16px' }}>
         <Label className="inline mid-trusted">
