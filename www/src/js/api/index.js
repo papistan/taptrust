@@ -4,12 +4,12 @@ const getApiClient = (options = {}) => {
   const headers = {};
 
   if (options.token) {
-    headers['Authorization'] = `Bearer ${options.token}`;
+    headers.Authorization = `Bearer ${options.token}`;
   }
 
   return axios.create({
     baseURL: process.env.API_BASE_URL,
-    headers,
+    headers
   });
 };
 
