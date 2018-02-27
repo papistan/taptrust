@@ -19,6 +19,7 @@ export default class App extends Component {
       <BrowserRouter>
         <ScrollToTop>
           <div>
+            <Header></Header>
             <div>
               <Switch>
                 <Route exact path="/" component={Gallery} />
