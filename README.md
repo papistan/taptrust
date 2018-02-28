@@ -31,7 +31,9 @@ The frontend server uses React, webpack, and Node.js.
 * With database server and frontend server running, you can POST your first token at `localhost:8080/tokenform`.
 * After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the id of the token that you want to review.
 
-#### API
+---
+
+### API
 
 In addition, you can `GET, POST, PUT, DELETE` at these routes:
 
@@ -104,7 +106,9 @@ The above fields should be sent in POST/PUT requests using _x-www-form-urlencode
 2. Run `sequelize db:migrate --env test` to set up a replica of your development database on the test database.
 3. Run `npm test`.
 
-### Deploying:
+---
+
+## Deployment
 
 ### Updating the deployment:
 
