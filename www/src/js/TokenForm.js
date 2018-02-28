@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { createToken } from './api';
 
@@ -16,6 +16,8 @@ class TokenForm extends Component {
       website: '',
       founders: '',
       description: '',
+      redirectToNewPage: false,
+      error: ''
     };
   }
 
@@ -26,17 +28,24 @@ class TokenForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const { match: { params: { tokenId } } } = this.props;
-
-    createToken(this.state).then(() => {
-      // TODO: Add callback after success
-    });
+    createToken(this.state)
+      .then(res => {
+        this.setState({ redirectToNewPage: true });
+      })
+      .catch(err => {
+        this.setState({ error: 'Error, try again' });
+      });
   };
 
   render() {
+    if (this.state.redirectToNewPage) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div>
         <Grid>
+          <p style={{ color: 'red' }}>{this.state.error}</p>
           <h2>Post Token</h2>
           <form onSubmit={this.handleSubmit}>
             <div>

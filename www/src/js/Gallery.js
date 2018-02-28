@@ -20,6 +20,11 @@ const Navigation = () => {
       <Navbar fixedTop collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
+           <div style={{margin: '0 0 20px'}}>
+            <a href="http://www.taptrust.com" target="_blank">
+             <img src="http://www.taptrust.com/static/img/logo.png" style={{width: '150px'}} />
+             </a>
+            </div>
             <span
               className="brand"
               style={{ color: 'black', fontSize: '35px', fontWeight: 'bolder' }}
@@ -53,7 +58,40 @@ class Gallery extends Component {
   }
 
   render() {
+
     let mappedApi = this.state.api.map(token => {
+
+      var trustedBadge = '';
+      if (token.score_overall > 80){
+        trustedBadge = (
+        <p style={{ fontSize: '16px' }}>
+          <Label className="inline trusted">
+            <Glyphicon glyph="ok-sign" /> Trusted
+          </Label>
+        </p>
+      );
+    }
+
+    if (token.score_overall <= 80){
+    trustedBadge = (
+      <p style={{ fontSize: '16px' }}>
+        <Label className="inline mid-trusted">
+          <Glyphicon glyph="question-sign" /> Moderate Risk
+        </Label>
+      </p>
+    );
+    }
+
+      if (token.score_overall < 50){
+      trustedBadge = (
+        <p style={{ fontSize: '16px' }}>
+          <Label className="inline not-trusted">
+            <Glyphicon glyph="remove-sign" /> Not Trusted
+          </Label>
+        </p>
+      );
+    }
+
       return (
         <div key={token.id}>
           <Grid>
@@ -90,19 +128,7 @@ class Gallery extends Component {
                     </span>
                   </Col>
                   <Col className="review-data-item5" sm={4} md={3}>
-                    {token.score_overall > 50 ? (
-                      <p style={{ fontSize: '16px' }}>
-                        <Label className="inline trusted">
-                          <Glyphicon glyph="ok-sign" /> Trusted
-                        </Label>
-                      </p>
-                    ) : (
-                      <p style={{ fontSize: '16px' }}>
-                        <Label className="inline not-trusted">
-                          <Glyphicon glyph="remove-sign" /> Not Trusted
-                        </Label>
-                      </p>
-                    )}
+                    {trustedBadge}
                   </Col>
                   <Col className="review-data-item2 grey-line" sm={1} md={3}>
                     <p

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { createReviewOfToken } from './api';
 
@@ -16,11 +16,13 @@ class ReviewForm extends Component {
       score_governance: 0,
       score_legal: 0,
       score_functionality: 0,
+      redirectToNewPage: false,
+      error: ''
     };
   }
 
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -28,17 +30,26 @@ class ReviewForm extends Component {
 
     const { match: { params: { tokenId } } } = this.props;
 
-    createReviewOfToken(tokenId, this.state).then(() => {
-      // TODO: Add callback after success
-    });
+    createReviewOfToken(tokenId, this.state)
+      .then(res => {
+        this.setState({ redirectToNewPage: true });
+      })
+      .catch(err => {
+        this.setState({ error: 'Error, try again' });
+      });
   };
 
   render() {
     const { match: { params: { tokenId } } } = this.props;
 
+    if (this.state.redirectToNewPage) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div>
         <Grid>
+          <p style={{ color: 'red' }}>{this.state.error}</p>
           <h2>Post Review</h2>
           <p>for token with tokenId: {tokenId}</p>
 
@@ -50,6 +61,7 @@ class ReviewForm extends Component {
                 id="name"
                 name="name"
                 required
+                value={this.state.name}
                 onChange={this.handleChange}
               />
             </div>
@@ -63,6 +75,7 @@ class ReviewForm extends Component {
                 id="url"
                 name="url"
                 required
+                value={this.state.url}
                 onChange={this.handleChange}
               />
             </div>
@@ -76,6 +89,7 @@ class ReviewForm extends Component {
                 id="review"
                 name="review"
                 required
+                value={this.state.review}
                 onChange={this.handleChange}
               />
             </div>
@@ -90,6 +104,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_transparency}
                 onChange={this.handleChange}
               />
             </div>
@@ -103,6 +118,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_governance}
                 onChange={this.handleChange}
               />
             </div>
@@ -116,6 +132,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_legal}
                 onChange={this.handleChange}
               />
             </div>
@@ -129,6 +146,7 @@ class ReviewForm extends Component {
                 min="0"
                 max="100"
                 required
+                value={this.state.score_functionality}
                 onChange={this.handleChange}
               />
             </div>
