@@ -134,20 +134,23 @@ $ cd /var/www/taptrust
 $ git pull origin master
 ```
 
-5. Install npm packages in backend app.
+5. Install npm packages in backend app if `package.json` has been modified.
 
 ```sh
 $ npm install
 ```
 
-6. Install npm package in frontend app.
+
+The next two steps are in the `www` folder. Use `cd www` to navigate to it.
+
+
+6. Install npm package in frontend app if if `www/package.json` has been modified.
 
 ```sh
-$ cd www
 $ npm install
 ```
 
-7. Build the front-end app
+7. Build the front-end app if any other code in `www` has been modified.
 
 ```sh
 $ npm run build
