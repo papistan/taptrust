@@ -29,7 +29,7 @@ The frontend server uses React, webpack, and Node.js.
 #### Post first token/review
 
 * With database server and frontend server running, you can POST your first token at `localhost:8080/tokenform`.
-* After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the id of the token that you want to review.
+* After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the numerical id of the token that you want to review.
 
 ---
 
