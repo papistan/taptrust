@@ -1,5 +1,6 @@
 const tokensController = require('../controllers').Tokens;
 const reviewsController = require('../controllers').Reviews;
+const authReviewersController = require('../controllers').AuthReviewers;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -20,4 +21,7 @@ module.exports = (app) => {
   app.put('/api/reviews/:reviewId', reviewsController.update);
   app.get('/api/reviews/:reviewId', reviewsController.retrieve);
   app.delete('/api/tokens/:tokenId/reviews/:reviewId', reviewsController.destroy);
+
+// Auth 
+  app.get('/signup', authReviewersController.signup);
 }
