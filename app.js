@@ -44,6 +44,11 @@ app.get('*', (req, res) =>
   })
 );
 
+// Models
+const models = require("./server/models");
+// load passport strategies
+require('./server/config/passport/passport.js')(passport, models.reviewer);
+
 const port = parseInt(process.env.PORT, 10) || 8000;
 const server = http.createServer(app);
 
