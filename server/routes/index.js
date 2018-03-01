@@ -24,4 +24,6 @@ module.exports = (app) => {
 
 // Auth 
   app.get('/signup', authReviewersController.signup);
+  app.get('/signin', authReviewersController.signin);
+
 }
