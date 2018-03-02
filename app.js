@@ -37,7 +37,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Require routes into the application.
-require('./server/routes')(app);
+require('./server/routes')(app, passport);
 app.get('*', (req, res) =>
   res.status(200).send({
     message: 'Try a different route.',
