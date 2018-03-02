@@ -49,6 +49,13 @@ const models = require("./server/models");
 // load passport strategies
 require('./server/config/passport/passport.js')(passport, models.reviewer);
 
+// Sync Database
+ models.sequelize.sync().then(function() {
+    console.log('Nice! Database looks fine')
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
+});
+
 const port = parseInt(process.env.PORT, 10) || 8000;
 const server = http.createServer(app);
 

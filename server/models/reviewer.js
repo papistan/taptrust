@@ -1,13 +1,31 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Reviewer = sequelize.define('Reviewer', {
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    username: DataTypes.TEXT,
-    last_login: DataTypes.DATE,
-    status: DataTypes.ENUM
+  const Reviewer = sequelize.define('Reviewer', {
+    email: { 
+      type: DataTypes.STRING,
+      unique: true
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    firstName: {
+      type: DataTypes.STRING
+    },
+    lastName: {
+      type: DataTypes.STRING
+    },
+    username: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    last_login: {
+      type: DataTypes.DATE
+    },
+    status: {
+      type: Sequelize.ENUM('active', 'inactive'),
+      defaultValue: 'active'
+    }
   }, {});
   Reviewer.associate = function(models) {
     // associations can be defined here
