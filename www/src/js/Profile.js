@@ -139,7 +139,7 @@ class Profile extends Component {
                         <Glyphicon glyph="ok-sign" /> Trusted
                       </Label>
                     </p>
-                  );
+                  )
                   }
 
                   if (token.score_overall <= 80){
@@ -149,7 +149,7 @@ class Profile extends Component {
                       <Glyphicon glyph="question-sign" /> Moderate Risk
                     </Label>
                   </p>
-                  );
+                  )
                   }
 
                   if (token.score_overall < 50){
@@ -159,7 +159,7 @@ class Profile extends Component {
                         <Glyphicon glyph="remove-sign" /> Not Trusted
                       </Label>
                     </p>
-                  );
+                  )
                   }
 
 
