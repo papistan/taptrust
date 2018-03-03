@@ -128,19 +128,37 @@ class Profile extends Component {
                     </p>
                   </span>
 
-                  {token.score_overall > 50 ? (
-                    <p style={{ fontSize: '16px', display: 'inline' }}>
-                      <Label className="trusted">
+
+                  if (token.score_overall > 80){
+                    trustedBadge = (
+                    <p style={{ fontSize: '16px' }}>
+                      <Label className="inline trusted">
                         <Glyphicon glyph="ok-sign" /> Trusted
                       </Label>
                     </p>
-                  ) : (
-                    <p style={{ fontSize: '16px', display: 'inline' }}>
-                      <Label className="not-trusted">
+                  );
+                  }
+
+                  if ((token.score_overall >= 50)&&(token.score_overall <= 80)){
+                  trustedBadge = (
+                  <p style={{ fontSize: '16px' }}>
+                    <Label className="inline mid-trusted">
+                      <Glyphicon glyph="question-sign" /> Moderate Risk
+                    </Label>
+                  </p>
+                  );
+                  }
+
+                  if (token.score_overall < 50){
+                  trustedBadge = (
+                    <p style={{ fontSize: '16px' }}>
+                      <Label className="inline not-trusted">
                         <Glyphicon glyph="remove-sign" /> Not Trusted
                       </Label>
                     </p>
-                  )}
+                  );
+                  }
+                  
                 </div>
               </Col>
             </Row>
@@ -248,7 +266,7 @@ class Profile extends Component {
               </Row>
               <Row className="flex-no-wrap">
                 <Col sm={12}>
-                  { lastReview.review !== undefined ? 
+                  { lastReview.review !== undefined ?
                     lastReview.review.length > 250 ? (
                     <p style={{ color: 'grey' }}>
                       {lastReview.review.substr(0, 250) + '...'}
