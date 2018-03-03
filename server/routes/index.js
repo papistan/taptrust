@@ -30,6 +30,9 @@ module.exports = (app, passport) => {
 
   app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
 
+  app.get('/logout', authReviewersController.logout);
+
+// custom middleware for login 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

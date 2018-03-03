@@ -14,3 +14,11 @@ module.exports.dashboard = function(req, res) {
     res.render('dashboard');
  
 }
+
+module.exports.logout = function(req, res) {
+ 
+    req.session.destroy(function(err) {
+        res.redirect('/');
+    });
+ 
+}
