@@ -130,10 +130,28 @@ class Profile extends Component {
 
 
 
-                  var trustedBadge = '';
+                  {token.score_overall > 50 ? (
+                    <p style={{ fontSize: '16px', display: 'inline' }}>
+                      <Label className="trusted">
+                        <Glyphicon glyph="ok-sign" /> Trusted
+                      </Label>
+                    </p>
+                  ) : (
+                    <p style={{ fontSize: '16px', display: 'inline' }}>
+                      <Label className="not-trusted">
+                        <Glyphicon glyph="remove-sign" /> Not Trusted
+                      </Label>
+                    </p>
+                  )}
+
+
+
+
+
+
 
                   if (token.score_overall > 80){
-                    trustedBadge = (
+                  (
                     <p style={{ fontSize: '16px' }}>
                       <Label className="inline trusted">
                         <Glyphicon glyph="ok-sign" /> Trusted
@@ -142,8 +160,9 @@ class Profile extends Component {
                   )
                   }
 
+
                   if (token.score_overall <= 80){
-                  trustedBadge = (
+            (
                   <p style={{ fontSize: '16px' }}>
                     <Label className="inline mid-trusted">
                       <Glyphicon glyph="question-sign" /> Moderate Risk
@@ -153,7 +172,7 @@ class Profile extends Component {
                   }
 
                   if (token.score_overall < 50){
-                  trustedBadge = (
+              (
                     <p style={{ fontSize: '16px' }}>
                       <Label className="inline not-trusted">
                         <Glyphicon glyph="remove-sign" /> Not Trusted
@@ -161,6 +180,11 @@ class Profile extends Component {
                     </p>
                   )
                   }
+
+
+
+
+
 
 
                 </div>
