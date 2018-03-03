@@ -29,9 +29,11 @@ The frontend server uses React, webpack, and Node.js.
 #### Post first token/review
 
 * With database server and frontend server running, you can POST your first token at `localhost:8080/tokenform`.
-* After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the id of the token that you want to review.
+* After a token is posted you can POST your first review at `localhost:8080/reviewform/:tokenId`, where tokenId is the numerical id of the token that you want to review.
 
-#### API
+---
+
+### API
 
 In addition, you can `GET, POST, PUT, DELETE` at these routes:
 
@@ -104,7 +106,9 @@ The above fields should be sent in POST/PUT requests using _x-www-form-urlencode
 2. Run `sequelize db:migrate --env test` to set up a replica of your development database on the test database.
 3. Run `npm test`.
 
-### Deploying:
+---
+
+## Deployment
 
 ### Updating the deployment:
 
@@ -130,20 +134,23 @@ $ cd /var/www/taptrust
 $ git pull origin master
 ```
 
-5. Install npm packages in backend app.
+5. Install npm packages in backend app if `package.json` has been modified.
 
 ```sh
 $ npm install
 ```
 
-6. Install npm package in frontend app.
+
+The next two steps are in the `www` folder. Use `cd www` to navigate to it.
+
+
+6. Install npm package in frontend app if if `www/package.json` has been modified.
 
 ```sh
-$ cd www
 $ npm install
 ```
 
-7. Build the front-end app
+7. Build the front-end app if any other code in `www` has been modified.
 
 ```sh
 $ npm run build
