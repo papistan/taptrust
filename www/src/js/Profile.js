@@ -129,6 +129,9 @@ class Profile extends Component {
                   </span>
 
 
+
+                  var trustedBadge = '';
+
                   if (token.score_overall > 80){
                     trustedBadge = (
                     <p style={{ fontSize: '16px' }}>
@@ -139,7 +142,7 @@ class Profile extends Component {
                   );
                   }
 
-                  if ((token.score_overall >= 50)&&(token.score_overall <= 80)){
+                  if (token.score_overall <= 80){
                   trustedBadge = (
                   <p style={{ fontSize: '16px' }}>
                     <Label className="inline mid-trusted">
@@ -158,7 +161,8 @@ class Profile extends Component {
                     </p>
                   );
                   }
-                  
+
+
                 </div>
               </Col>
             </Row>
