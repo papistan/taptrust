@@ -128,7 +128,9 @@ class Profile extends Component {
                     </p>
                   </span>
 
-                    {
+
+
+                    {{
                   if (token.score_overall > 80){
 
                     <p style={{ fontSize: '16px' }}>
@@ -158,7 +160,7 @@ class Profile extends Component {
 
                   }
 
-}
+}}
 
 
 
