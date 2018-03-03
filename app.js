@@ -7,11 +7,14 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
+const passport = require('passport');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
 
 // Set up the express app
 const app = express();
 
-//set up CORS for development
+// set up CORS for development
 app.use(cors());
 
 // Log requests to the console.
@@ -21,13 +24,37 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// for Passport 
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })) // session secret
+app.use(passport.initialize());
+app.use(passport.session()) // persistent login sessions
+
+//For Handlebars
+app.set('views', './server/views')
+app.engine('hbs', exphbs({
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
 // Require routes into the application.
-require('./server/routes')(app);
+require('./server/routes')(app, passport);
 app.get('*', (req, res) =>
   res.status(200).send({
     message: 'Try a different route.',
   })
 );
+
+// Models
+const models = require("./server/models");
+// load passport strategies
+require('./server/config/passport/passport.js')(passport, models.Reviewer);
+
+// Sync Database
+ models.sequelize.sync().then(function() {
+    console.log('Nice! Database looks fine')
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
+});
 
 const port = parseInt(process.env.PORT, 10) || 8000;
 const server = http.createServer(app);
