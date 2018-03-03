@@ -130,7 +130,7 @@ class Profile extends Component {
 
 
 
-
+{
                   if (token.score_overall > 80){
                     <p style={{ fontSize: '16px' }}>
                       <Label className="inline trusted">
@@ -158,7 +158,7 @@ class Profile extends Component {
 
               }
 
-
+}
 
 
                 </div>
