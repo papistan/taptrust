@@ -5,6 +5,22 @@ module.exports = (passport, reviewer) => {
     const Reviewer = reviewer;
     const LocalStrategy = require('passport-local').Strategy;
 
+    // serialize
+    passport.serializeUser((reviewer, done) => {
+        done(null, reviewer.id);
+    });
+
+    // deserialize reviewer
+    passport.deserializeUser((id, done) => {
+        Reviewer.findById(id).then((reviewer) => {
+            if (reviewer) {
+                done(null, reviewer.get());
+            } else {
+                done(reviewer.errors, null);
+            }
+        });
+    });
+
     passport.use('local-signup', new LocalStrategy(
         {
             usernameField: 'email',
@@ -15,7 +31,6 @@ module.exports = (passport, reviewer) => {
         (req, email, password, done) => {
             
             const generateHash = (password) =>  bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-
             Reviewer.findOne({
                 where: {
                     email
