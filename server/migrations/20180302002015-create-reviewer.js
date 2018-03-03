@@ -23,8 +23,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       username: {
-        type: Sequelize.TEXT,
-        allowNull: false
+        type: Sequelize.TEXT
       },
       last_login: {
         type: Sequelize.DATE

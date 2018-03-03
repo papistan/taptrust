@@ -46,7 +46,6 @@ app.get('*', (req, res) =>
 
 // Models
 const models = require("./server/models");
-console.log("#########" + models.Reviewer + "#########");
 // load passport strategies
 require('./server/config/passport/passport.js')(passport, models.Reviewer);
 

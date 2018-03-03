@@ -28,4 +28,6 @@ module.exports = (app, passport) => {
   
   app.get('/signin', authReviewersController.signin);
 
+  app.get('/dashboard', authReviewersController.dashboard);
+
 }
