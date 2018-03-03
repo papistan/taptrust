@@ -23,6 +23,7 @@ module.exports = (passport, reviewer) => {
 
     passport.use('local-signup', new LocalStrategy(
         {
+            // overrides localstrategy default of username with email
             usernameField: 'email',
             passwordField: 'password',
             passReqToCallback: true // allows us to pass back the entire request to the callback
@@ -61,4 +62,46 @@ module.exports = (passport, reviewer) => {
             })
         }        
     ));
+
+    // LOCAL SIGNIN
+    passport.use('local-signin', new LocalStrategy(
+        {
+            // overrides localstrategy default of username with email
+            usernameField: 'email',
+            passwordField: 'password',
+            passReqToCallback: true // allows us to pass back the entire request to the callback
+        },
+ 
+        (req, email, password, done) => {
+            let Reviewer = reviewer;
+            let isValidPassword = (userpass, password) => bCrypt.compareSync(password, userpass)
+ 
+        Reviewer.findOne({
+            where: {
+                email
+            }
+        }).then((reviewer) => {
+            if (!reviewer) {
+                return done(null, false, {
+                    message: 'Email does not exist'
+                });
+            }
+            if (!isValidPassword(reviewer.password, password)) {
+                return done(null, false, {
+                    message: 'Incorrect password.'
+                });
+            }
+            let reviewerinfo = reviewer.get();
+            return done(null, reviewerinfo);
+        }).catch((err) => {
+            console.log("Error:", err);
+            return done(null, false, {
+                message: 'Something went wrong with your Signin'
+            });
+        });
+    }
+));
+
+
+
 }
