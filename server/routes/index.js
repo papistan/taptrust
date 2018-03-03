@@ -28,6 +28,11 @@ module.exports = (app, passport) => {
   
   app.get('/signin', authReviewersController.signin);
 
-  app.get('/dashboard', authReviewersController.dashboard);
+  app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
 
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/signin');
+  }
 }
