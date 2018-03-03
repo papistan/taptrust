@@ -129,36 +129,21 @@ class Profile extends Component {
                   </span>
 
 
-
-{
-                  if (token.score_overall > 80){
-                    <p style={{ fontSize: '16px' }}>
-                      <Label className="inline trusted">
+                  {token.score_overall > 80 ? (
+                    <p style={{ fontSize: '16px', display: 'inline' }}>
+                      <Label className="trusted">
                         <Glyphicon glyph="ok-sign" /> Trusted
                       </Label>
                     </p>
-                  }
-
-                else if ((token.score_overall < 81)&&(token.score_overall > 49)){
-
-                    <p style={{ fontSize: '16px' }}>
-                      <Label className="inline mid-trusted">
-                        <Glyphicon glyph="question-sign" /> Moderate Risk
+                  ) : (
+                    <p style={{ fontSize: '16px', display: 'inline' }}>
+                      <Label className="not-trusted">
+                        <Glyphicon glyph="remove-sign" /> Not Trusted
                       </Label>
                     </p>
-                  }
+                  )}
 
 
-              else
-                  {<p style={{ fontSize: '16px' }}>
-                    <Label className="inline not-trusted">
-                      <Glyphicon glyph="remove-sign" /> Not Trusted
-                    </Label>
-                  </p>
-
-              }
-
-}
 
 
                 </div>
