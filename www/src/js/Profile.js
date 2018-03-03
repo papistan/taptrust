@@ -161,7 +161,7 @@ class Profile extends Component {
                   }
 
 
-                  if (token.score_overall <= 80){
+                  if (token.score_overall < 81){
             (
                   <p style={{ fontSize: '16px' }}>
                     <Label className="inline mid-trusted">
