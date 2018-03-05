@@ -10,6 +10,8 @@ import ReviewDetail from './ReviewDetail';
 import TokenForm from './TokenForm';
 import ReviewForm from './ReviewForm';
 import Header from './Header';
+import Signin from './auth/Signin';
+import Signup from './auth/Signup';
 
 import '../css/style.css';
 
@@ -22,7 +24,10 @@ const App = () => (
           <Switch>
             <Route exact path="/" component={Gallery} />
             <Route exact path="/tokenform" component={TokenForm} />
+            <Route exact path="/signin" component={Signin}/>
+            <Route exact path="/signup" component={Signup}/>
             <Route exact path="/reviewform/:tokenId" component={ReviewForm} />
+            
             <Route exact path="/:name" component={Profile} />
             <Route exact path="/:name/reviews" component={AllReviews} />
             <Route

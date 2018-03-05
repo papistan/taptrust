@@ -23,3 +23,7 @@ export const getReview = reviewId => getApiClient().get(`/reviews/${reviewId}`);
 
 export const createReviewOfToken = (tokenId, payload) =>
   getApiClient().post(`/tokens/${tokenId}/reviews`, payload);
+
+export const signin = payload => getApiClient().post('/signin', payload);
+
+export const signup = payload => getApiClient().post('/signup', payload);
