@@ -1,40 +1,62 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
 import Alert from 'react-bootstrap/lib/Alert';
 import Button from 'react-bootstrap/lib/Button';
 
-import { createReviewOfToken } from './api';
+import { getTokenByName, createReview } from './api';
+import Loading from './Loading';
 
 class ReviewForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: '',
-      url: '',
-      review: '',
-      score_transparency: 0,
-      score_governance: 0,
-      score_legal: 0,
-      score_functionality: 0,
-      redirectToNewPage: false,
+      token: null,
+      review: {
+        name: '',
+        url: '',
+        review: '',
+        score_transparency: 0,
+        score_governance: 0,
+        score_legal: 0,
+        score_functionality: 0
+      },
+      loading: false,
       error: ''
     };
   }
 
+  componentWillMount() {
+    const { match: { params: { tokenName } } } = this.props;
+
+    // Load token
+    this.setState({ loading: true });
+    getTokenByName(tokenName).then(response => {
+      const token = response.data;
+
+      this.setState({
+        token,
+        loading: false
+      });
+    });
+  }
+
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({
+      review: { ...this.state.review, [event.target.name]: event.target.value }
+    });
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    const { match: { params: { tokenId } } } = this.props;
+    const { history } = this.props;
+    const { token, review } = this.state;
 
-    createReviewOfToken(tokenId, this.state)
+    createReview(token.id, review)
       .then(() => {
-        this.setState({ redirectToNewPage: true });
+        // Redirect to home page
+        history.push('/');
       })
       .catch(() => {
         this.setState({ error: 'Error, try again' });
@@ -42,29 +64,28 @@ class ReviewForm extends Component {
   };
 
   render() {
-    const { match: { params: { tokenId } } } = this.props;
     const {
-      redirectToNewPage,
+      token,
       error,
-      name,
-      url,
-      review,
-      score_transparency,
-      score_governance,
-      score_legal,
-      score_functionality
+      loading,
+      review: {
+        name,
+        url,
+        review,
+        score_transparency,
+        score_governance,
+        score_legal,
+        score_functionality
+      }
     } = this.state;
 
-    if (redirectToNewPage) {
-      return <Redirect to="/" />;
-    }
-
-    return (
+    return loading ? (
+      <Loading />
+    ) : (
       <Grid>
         {error && <Alert bsStyle="danger">{error}</Alert>}
 
-        <h2>Post Review</h2>
-        <p>for token with tokenId: {tokenId}</p>
+        <h2>Post Review for token: {token.name}</h2>
 
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -164,7 +185,7 @@ class ReviewForm extends Component {
             />
           </div>
 
-          <Button className="btn btn-primary centerButton" type="submit">
+          <Button bsStyle="primary" className="centerButton" type="submit">
             Send
           </Button>
         </form>

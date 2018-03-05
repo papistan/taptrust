@@ -7,11 +7,11 @@ import {
   Col,
   Row,
   ProgressBar,
-  Glyphicon,
+  Glyphicon
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { getToken } from './api';
+import { getTokenByName } from './api';
 import Loading from './Loading';
 
 class AllReviews extends Component {
@@ -20,17 +20,17 @@ class AllReviews extends Component {
 
     this.state = {
       api: [],
-      loading: true,
+      loading: true
     };
   }
 
   componentDidMount() {
-    const { match: { params: { name: tokenId } } } = this.props;
+    const { match: { params: { name: tokenName } } } = this.props;
 
-    getToken(tokenId).then(res => {
+    getTokenByName(tokenName).then(res => {
       this.setState({
         api: res.data,
-        loading: false,
+        loading: false
       });
     });
   }
@@ -50,10 +50,10 @@ class AllReviews extends Component {
       'September',
       'October',
       'November',
-      'December',
+      'December'
     ];
 
-    let mappedReviews = reviews.map(reviews => {
+    const mappedReviews = reviews.map(reviews => {
       const date = new Date(reviews.createdAt);
       return (
         <div key={reviews.id}>
@@ -61,7 +61,7 @@ class AllReviews extends Component {
             <Navbar fixedTop collapseOnSelect>
               <Navbar.Header>
                 <Navbar.Brand>
-                  <Link to={'/' + token.name}>
+                  <Link to={`/${token.name}`}>
                     <Glyphicon glyph="chevron-left" />
                     {token.name}
                   </Link>
@@ -72,18 +72,20 @@ class AllReviews extends Component {
 
           <Grid>
             <Link
-              to={'/' + token.name + '/reviews' + '/' + reviews.id}
+              to={`/${token.name}/reviews` + `/${reviews.id}`}
               style={{ color: 'black' }}
             >
               <div className="review-div">
                 <Row className="flex-no-wrap ">
                   <Col sm={8}>
-                    <p style={{ fontSize: '30px', fontWeight: 'bold' }}>{reviews.score_overall}</p>
+                    <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
+                      {reviews.score_overall}
+                    </p>
                     <p style={{ color: 'grey' }}>Overall Score</p>
                   </Col>
                   <Col style={{ float: 'right' }} sm={4}>
                     <h4>{reviews.name}</h4>
-                    <p style={{ color: 'grey'}}>
+                    <p style={{ color: 'grey' }}>
                       {months[date.getMonth()]} {date.getDate()},{' '}
                       {date.getFullYear()}
                     </p>
@@ -91,27 +93,35 @@ class AllReviews extends Component {
                 </Row>
                 <Row className="flex-no-wrap review-box-words">
                   <Col className="darkgrey-line" sm={3}>
-                    <p style={{ fontSize: '20px',fontWeight: "bold" }}>{reviews.score_transparency}</p>
-                    <p style={{ color: 'grey'}}>Transparency</p>
+                    <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                      {reviews.score_transparency}
+                    </p>
+                    <p style={{ color: 'grey' }}>Transparency</p>
                   </Col>
                   <Col className="darkgrey-line" sm={3}>
-                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_legal}</p>
-                    <p style={{ color: 'grey'}}>Legal Status</p>
+                    <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                      {reviews.score_legal}
+                    </p>
+                    <p style={{ color: 'grey' }}>Legal Status</p>
                   </Col>
                   <Col className="darkgrey-line" sm={3}>
-                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_functionality}</p>
-                    <p style={{ color: 'grey'}}>Functionality</p>
+                    <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                      {reviews.score_functionality}
+                    </p>
+                    <p style={{ color: 'grey' }}>Functionality</p>
                   </Col>
                   <Col sm={3}>
-                    <p style={{ fontSize: '20px', fontWeight: "bold" }}>{reviews.score_governance}</p>
-                    <p style={{ color: 'grey'}}>Governance</p>
+                    <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                      {reviews.score_governance}
+                    </p>
+                    <p style={{ color: 'grey' }}>Governance</p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col style={{ marginTop: '2%'}} sm={12}>
+                  <Col style={{ marginTop: '2%' }} sm={12}>
                     {reviews.review.length > 250 ? (
                       <p style={{ color: 'gray' }}>
-                        {reviews.review.substr(0, 250) + '...'}
+                        {`${reviews.review.substr(0, 250)}...`}
                       </p>
                     ) : (
                       <p style={{ color: 'gray' }}> {reviews.review}</p>
@@ -127,25 +137,26 @@ class AllReviews extends Component {
 
     if (this.state.loading) {
       return <Loading />;
-    } else {
-      return (
-        <div>
-          <Grid>
-            <Row>
-              <Col sm={10}>
-                <h2 style={{ fontSize: '30px' }}>All Reviews</h2>
-              </Col>
-            </Row>
-            <Row>
-              <Col sm={10}>
-                <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>{reviews.length} total reviews</p>
-              </Col>
-            </Row>
-          </Grid>
-          {mappedReviews};
-        </div>
-      );
     }
+    return (
+      <div>
+        <Grid>
+          <Row>
+            <Col sm={10}>
+              <h2 style={{ fontSize: '30px' }}>All Reviews</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={10}>
+              <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>
+                {reviews.length} total reviews
+              </p>
+            </Col>
+          </Row>
+        </Grid>
+        {mappedReviews};
+      </div>
+    );
   }
 }
 
