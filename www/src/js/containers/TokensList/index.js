@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
-import {
-  Navbar,
-  NavItem,
-  Nav,
-  Grid,
-  Col,
-  Row,
-  Glyphicon,
-  Label
-} from 'react-bootstrap';
+import { Grid, Col, Row, Glyphicon, Label } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { getAllTokens } from './api';
-import NavBar from './components/NavBar';
-import Loading from './Loading';
+import { getAllTokens } from '../../api';
+import NavBar from '../../components/NavBar';
+import Loading from '../../Loading';
 
 class Gallery extends Component {
   constructor(props) {
@@ -77,7 +68,7 @@ class Gallery extends Component {
 
           return (
             <div key={token.id}>
-              <Grid>
+              <Grid key={token.id}>
                 <Link to={`/${token.name}`} style={{ textDecoration: 'none' }}>
                   <div className="gallery">
                     <Row>
