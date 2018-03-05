@@ -1,13 +1,13 @@
 body {
-	font-size: 15px;
-	padding: 40px 5px 20px 5px;
+  font-size: 15px;
+  padding: 40px 5px 20px 5px;
   font-family: Helvetica, Roboto, Arial, sans-serif;
   font-weight: 300;
 }
 
 h2 {
-	color: black;
-	font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
 
 h3 {
@@ -16,59 +16,59 @@ h3 {
 }
 
 p {
-	color: black;
+  color: black;
 }
 
 label {
-	width: 100%;
+  width: 100%;
 }
 
-.navbar{
+.navbar {
   background-color: white;
 }
 
 .inline {
-	display: inline;
+  display: inline;
 }
 
 .gallery {
-	margin: 20px;
+  margin: 20px;
 }
 
 .review-div {
-	background-color: #e8e8ee;
-	padding: 20px;
-	border-radius:5%;
-	margin: 20px 10px 10px 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #e8e8ee;
+  padding: 20px;
+  border-radius: 5%;
+  margin: 20px 10px 10px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .review-div:hover {
-	background-color: #dfdfe7;
+  background-color: #dfdfe7;
 }
 
 .white-space {
-	white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .progress-bar {
-  background-color: #FFCC11 !important;
+  background-color: #ffcc11 !important;
 }
 
 .trusted {
-  background-color: #64D3E2 !important;
+  background-color: #64d3e2 !important;
   padding: 5px 15px;
   color: white;
 }
 
 .mid-trusted {
-  background-color: #FFC300 !important;
+  background-color: #ffc300 !important;
   padding: 5px 15px;
   color: white;
 }
 
 .not-trusted {
-  background-color: #FF1493 !important;
+  background-color: #ff1493 !important;
   padding: 5px 5px;
   color: white;
 }
@@ -76,7 +76,6 @@ label {
 .review-data-row {
   margin: 0;
   padding: 0;
-
 }
 .review-data-item1 {
   flex: 1;
@@ -122,9 +121,9 @@ label {
 }
 
 .vertical-line {
-  border:         none;
-  border-right:   1px solid rgb(77, 76, 76);
-  width:          1px;
+  border: none;
+  border-right: 1px solid rgb(77, 76, 76);
+  width: 1px;
 }
 
 /* Spinner */
@@ -174,8 +173,16 @@ label {
   -o-animation: spinner 1500ms infinite linear;
   animation: spinner 1500ms infinite linear;
   border-radius: 0.5em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
 }
 
 @-webkit-keyframes spinner {
@@ -243,4 +250,4 @@ label {
   }
 }
 
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css');
