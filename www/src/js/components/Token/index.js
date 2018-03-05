@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
 import { truncate } from '../../utils/string';
+import { formatDate } from '../../utils/date';
+
 import Badge from './Badge';
 
 const Token = ({ token }) => (
@@ -14,7 +16,14 @@ const Token = ({ token }) => (
       <Grid>
         <Row>
           <Col xs={12} md={10}>
-            <h3>{token.name}</h3>
+            <Row>
+              <Col xs={12} md={8}>
+                <h3>{token.name}</h3>
+              </Col>
+              <Col xs={12} md={4} className="text-right">
+                <small>Last update: {formatDate(token.updatedAt)}</small>
+              </Col>
+            </Row>
 
             <p>{truncate(token.description)}</p>
           </Col>
