@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/lib/Button';
 
 import { getTokenByName, createReview } from './api';
 import Loading from './Loading';
+import Token from './components/Token';
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -84,6 +85,8 @@ class ReviewForm extends Component {
     ) : (
       <Grid>
         {error && <Alert bsStyle="danger">{error}</Alert>}
+
+        <Token token={token} />
 
         <h2>Post Review for token: {token.name}</h2>
 
