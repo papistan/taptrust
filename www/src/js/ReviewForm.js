@@ -90,6 +90,8 @@ class ReviewForm extends Component {
 
         <h2>Post Review for token: {token.name}</h2>
 
+        <a href="#">Review Guidelines</a>
+
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
