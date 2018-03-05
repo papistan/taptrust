@@ -53,7 +53,7 @@ class Profile extends Component {
 
   render() {
     const token = this.state.api;
-    const reviews = token.Reviews || [];
+    const reviews = token.reviews || [];
     const lastReview = reviews[reviews.length - 1] || [];
     const date = new Date(lastReview.createdAt);
     const months = [

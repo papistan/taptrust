@@ -37,7 +37,7 @@ class AllReviews extends Component {
 
   render() {
     const token = this.state.api;
-    const reviews = token.Reviews || [];
+    const reviews = token.reviews || [];
     const months = [
       'January',
       'February',

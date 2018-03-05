@@ -1,10 +1,10 @@
 const sequelize = require('sequelize');
 
-const { Tokens, Reviews } = require('../models');
+const { Token, Review } = require('../models');
 
 module.exports = {
   create(req, res) {
-    return Tokens.create({
+    return Token.create({
       name: req.body.name,
       category: req.body.category,
       description: req.body.description,
@@ -18,10 +18,11 @@ module.exports = {
   },
 
   list(req, res) {
-    return Tokens.findAll({
+    return Token.findAll({
       include: [
         {
-          model: Reviews
+          model: Review,
+          as: 'reviews'
         }
       ]
     })
@@ -31,13 +32,14 @@ module.exports = {
 
   // CHANGED TO BE FOUND BY NAME INSTEAD. KEEP???
   retrieve(req, res) {
-    return Tokens.find({
+    return Token.find({
       where: {
         name: req.params.name
       },
       include: [
         {
-          model: Reviews
+          model: Review,
+          as: 'reviews'
         }
       ]
     })
@@ -54,7 +56,7 @@ module.exports = {
 
   // Updates aggregate token scores for each score parameters each time a new review is posted.
   updateAgg(req, res) {
-    return Reviews.findAll({
+    return Review.findAll({
       where: {
         tokenId: req.params.tokenId
       },
@@ -76,7 +78,7 @@ module.exports = {
       ]
     })
       .then(agg =>
-        Tokens.findById(req.params.tokenId)
+        Token.findById(req.params.tokenId)
           .then(tokens =>
             tokens
               .update({
@@ -101,10 +103,10 @@ module.exports = {
   },
 
   update(req, res) {
-    return Tokens.findById(req.params.tokenId, {
+    return Token.findById(req.params.tokenId, {
       include: [
         {
-          model: Reviews
+          model: Review
         }
       ]
     })
@@ -118,14 +120,14 @@ module.exports = {
           .update(req.body, {
             fields: Object.keys(req.body)
           })
-          .then(token => res.status(200).send(token))
+          .then(updatedToken => res.status(200).send(updatedToken))
           .catch(error => res.status(400).send(error));
       })
       .catch(error => res.status(400).send(error));
   },
 
   destroy(req, res) {
-    return Tokens.findById(req.params.tokenId)
+    return Token.findById(req.params.tokenId)
       .then(token => {
         if (!token) {
           return res.status(404).send({

@@ -1,4 +1,4 @@
-const { Reviews, Tokens } = require('../models');
+const { Review } = require('../models');
 
 // calculates Review's overall_score from other score values
 const Overall = data => {
@@ -17,7 +17,7 @@ module.exports = {
   // create new review
   create(req, res, next) {
     return (
-      Reviews.create({
+      Review.create({
         name: req.body.name,
         review: fullReview(req.body),
         url: req.body.url,
@@ -35,7 +35,7 @@ module.exports = {
   },
 
   list(req, res) {
-    return Reviews.findAll({
+    return Review.findAll({
       where: {
         tokenId: req.params.tokenId
       }
@@ -45,13 +45,13 @@ module.exports = {
   },
 
   retrieve(req, res) {
-    return Reviews.findById(req.params.reviewId)
+    return Review.findById(req.params.reviewId)
       .then(review => res.status(200).send(review))
       .catch(error => res.status(400).send(error));
   },
 
   update(req, res) {
-    return Reviews.findById(req.params.reviewId)
+    return Review.findById(req.params.reviewId)
       .then(review => {
         if (!review) {
           return res.status(404).send({
@@ -78,7 +78,7 @@ module.exports = {
   },
 
   destroy(req, res) {
-    return Reviews.find({
+    return Review.find({
       where: {
         id: req.params.reviewId,
         tokenId: req.params.tokenId

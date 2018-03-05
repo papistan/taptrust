@@ -30,7 +30,7 @@ const Token = ({ token }) => (
           <Col className="review-data-item2" sm={3} md={3}>
             <span className="text-nowrap">
               <p style={{ color: '#d3d3d3', fontSize: '16px' }}>
-                ({token.Reviews.length} Reviews)
+                ({token.reviews.length} Reviews)
               </p>
             </span>
           </Col>
