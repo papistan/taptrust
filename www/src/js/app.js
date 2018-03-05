@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
+
 import Gallery from './Gallery';
 import ScrollToTop from './ScrollToTop';
 import ErrorPage from './ErrorPage';
