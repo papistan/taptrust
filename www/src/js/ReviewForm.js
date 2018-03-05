@@ -60,7 +60,7 @@ class ReviewForm extends Component {
         history.push('/');
       })
       .catch(() => {
-        this.setState({ error: 'Error, try again' });
+        this.setState({ error: 'Unable to save token review' });
       });
   };
 
