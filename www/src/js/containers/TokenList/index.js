@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 import Form from 'react-bootstrap/lib/Form';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import Label from 'react-bootstrap/lib/Label';
+import orderBy from 'lodash/orderBy';
 
 import { getAllTokens } from '../../api';
 import NavBar from '../../components/NavBar';
@@ -52,6 +54,8 @@ class TokenList extends Component {
           </h1>
 
           <Form inline className="sort-form">
+            <Label>Sort:</Label>
+            &nbsp;
             <FormControl
               componentClass="select"
               name="sortBy"
@@ -60,7 +64,7 @@ class TokenList extends Component {
               onChange={this.handleSortChange}
             >
               <option value="score_overall">Score</option>
-              <option value="other">Updated</option>
+              <option value="updatedAt">Updated</option>
             </FormControl>
             &nbsp;
             <FormControl
@@ -76,7 +80,9 @@ class TokenList extends Component {
           </Form>
         </div>
 
-        {tokens.map(token => <Token key={token.id} token={token} />)}
+        {orderBy(tokens, sortBy, order).map(token => (
+          <Token key={token.id} token={token} />
+        ))}
       </Grid>
     );
   }
