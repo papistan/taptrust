@@ -5,6 +5,7 @@ import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
+import { truncate } from '../../utils/string';
 import Badge from './Badge';
 
 const Token = ({ token }) => (
@@ -15,11 +16,7 @@ const Token = ({ token }) => (
           <Col xs={12} md={10}>
             <h3>{token.name}</h3>
 
-            {token.description.length > 250 ? (
-              <p>{`${token.description.substr(0, 250)}...`}</p>
-            ) : (
-              <p>{token.description}</p>
-            )}
+            <p>{truncate(token.description)}</p>
           </Col>
         </Row>
 

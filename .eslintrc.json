@@ -15,6 +15,7 @@
   },
   "rules": {
     "constructor-super": "warn",
+    "import/prefer-default-export": "off",
     "jsx-a11y/label-has-for": [
       "error",
       { "required": { "some": ["nesting", "id"] } }
