@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Grid from 'react-bootstrap/lib/Grid';
 
 import { getAllTokens } from '../../api';
 import NavBar from '../../components/NavBar';
 import Token from '../../components/Token';
 import Loading from '../../Loading';
 
-class Gallery extends Component {
+class TokenList extends Component {
   constructor(props) {
     super(props);
 
@@ -30,13 +31,17 @@ class Gallery extends Component {
     return loading ? (
       <Loading />
     ) : (
-      <div>
+      <Grid>
         <NavBar />
 
+        <h1 tyle={{ color: 'black', fontSize: '35px', fontWeight: 'bolder' }}>
+          Tokens
+        </h1>
+
         {tokens.map(token => <Token key={token.id} token={token} />)}
-      </div>
+      </Grid>
     );
   }
 }
 
-export default Gallery;
+export default TokenList;

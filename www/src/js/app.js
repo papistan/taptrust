@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
 
-import TokensList from './containers/TokensList';
+import TokenList from './containers/TokenList';
 import ScrollToTop from './ScrollToTop';
 import ErrorPage from './ErrorPage';
 import Profile from './Profile';
@@ -20,7 +20,7 @@ const App = () => (
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={TokensList} />
+          <Route exact path="/" component={TokenList} />
           <Route exact path="/tokenform" component={TokenForm} />
           <Route exact path="/reviewform/:tokenName" component={ReviewForm} />
           <Route exact path="/:name" component={Profile} />

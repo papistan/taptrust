@@ -18,13 +18,6 @@ const NavBar = () => (
             />
           </a>
         </div>
-
-        <div
-          className="brand"
-          style={{ color: 'black', fontSize: '35px', fontWeight: 'bolder' }}
-        >
-          Tokens
-        </div>
       </Navbar.Brand>
     </Navbar.Header>
   </Navbar>
