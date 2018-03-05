@@ -25,7 +25,7 @@ class Gallery extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     getAllTokens().then(res => {
       this.setState({
         tokens: res.data,
