@@ -14,6 +14,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "camelcase": "off",
     "constructor-super": "warn",
     "import/prefer-default-export": "off",
     "jsx-a11y/label-has-for": [
