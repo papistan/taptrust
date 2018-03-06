@@ -23,26 +23,26 @@ module.exports = (app, passport) => {
   app.delete('/api/tokens/:tokenId/reviews/:reviewId', reviewsController.destroy);
 
 // Auth 
-  app.get('api/signup', authReviewersController.signup);
-  app.post('api/signup', passport.authenticate('local-signup', { 
-    successRedirect: 'api/dashboard', 
-    failureRedirect: 'api/signup' 
+  app.get('signup', authReviewersController.signup);
+  app.post('signup', passport.authenticate('local-signup', { 
+    successRedirect: 'dashboard', 
+    failureRedirect: 'signup' 
   }));
   
-  app.get('api/signin', authReviewersController.signin);
-  app.post('api/signin', passport.authenticate('local-signin', {
-    successRedirect: 'api/dashboard',
-    failureRedirect: 'api/signin'
+  app.get('signin', authReviewersController.signin);
+  app.post('signin', passport.authenticate('local-signin', {
+    successRedirect: 'dashboard',
+    failureRedirect: 'signin'
   }));
 
-  app.get('api/dashboard', isLoggedIn, authReviewersController.dashboard);
+  app.get('dashboard', isLoggedIn, authReviewersController.dashboard);
 
-  app.get('api/logout', authReviewersController.logout);
+  app.get('logout', authReviewersController.logout);
 
 // custom middleware for login 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('api/signin');
+    res.redirect('signin');
   }
 }

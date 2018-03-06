@@ -1,7 +1,7 @@
 
 module.exports = {
     signup(req, res) {
-        res.render('api/signup');
+        res.render('signup');
     },
 
     signin(req, res) {
