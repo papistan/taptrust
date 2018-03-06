@@ -140,7 +140,7 @@ $ git pull origin master
 $ npm install
 ```
 
-8. If backend server has been edited, restart pm2 processes
+6. If backend server has been edited, restart pm2 processes
 
 ```sh
 $ cd ..
