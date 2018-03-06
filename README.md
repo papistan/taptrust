@@ -140,26 +140,29 @@ $ git pull origin master
 $ npm install
 ```
 
-
-The next two steps are in the `www` folder. Use `cd www` to navigate to it.
-
-
-6. Install npm package in frontend app if if `www/package.json` has been modified.
-
-```sh
-$ npm install
-```
-
-7. Build the front-end app if any other code in `www` has been modified.
-
-```sh
-$ npm run build
-```
-
-8. Restart pm2 processes
+8. If backend server has been edited, restart pm2 processes
 
 ```sh
 $ cd ..
 $ pm2 stop pm2config.json
 $ pm2 start pm2config.json
+
+---
+
+The next two steps are in the `www` folder. Use `cd www` to navigate to it.
+
+
+7. Install npm package in frontend app if if `www/package.json` has been modified.
+
+```sh
+$ npm install
+```
+
+8. Build the front-end app if any other code in `www` has been modified.
+
+```sh
+$ npm run build
+```
+
+
 ```
