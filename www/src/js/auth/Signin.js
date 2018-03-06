@@ -30,7 +30,7 @@ class Signin extends Component {
       history.push('/');
     })
     .catch(() => {
-      this.setState({ error: 'Unable to signin: check email or password' });
+      this.setState({ error: 'Unable to signin: check email or password or sign up' });
        });
   };
 

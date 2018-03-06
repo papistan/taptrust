@@ -23,19 +23,19 @@ module.exports = (app, passport) => {
   app.delete('/api/tokens/:tokenId/reviews/:reviewId', reviewsController.destroy);
 
 // Auth 
-  // app.get('/signup', authReviewersController.signup);
+  app.get('api/signup', authReviewersController.signup);
   app.post('api/signup', passport.authenticate('local-signup', { 
-    successRedirect: '/dashboard', 
-    failureRedirect: '/signup' 
+    successRedirect: 'api/dashboard', 
+    failureRedirect: 'api/signup' 
   }));
   
-  // app.get('ap/signin', authReviewersController.signin);
+  app.get('api/signin', authReviewersController.signin);
   app.post('api/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/signin'
+    successRedirect: 'api/dashboard',
+    failureRedirect: 'api/signin'
   }));
 
-  app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
+  app.get('api/dashboard', isLoggedIn, authReviewersController.dashboard);
 
   app.get('api/logout', authReviewersController.logout);
 
@@ -43,6 +43,6 @@ module.exports = (app, passport) => {
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('/signin');
+    res.redirect('api/signin');
   }
 }
