@@ -146,10 +146,10 @@ $ npm install
 $ cd ..
 $ pm2 stop pm2config.json
 $ pm2 start pm2config.json
+```
 
----
 
-The next two steps are in the `www` folder. Use `cd www` to navigate to it.
+* The next two steps are in the `www` folder. Use `cd www` to navigate to it.
 
 
 7. Install npm package in frontend app if if `www/package.json` has been modified.
