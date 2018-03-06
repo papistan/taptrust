@@ -1,42 +1,42 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Reviews = sequelize.define('Reviews', {
+  const Review = sequelize.define('Review', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     review: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     score_overall: DataTypes.INTEGER,
     score_transparency: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     score_governance: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     score_legal: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     score_functionality: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-}); 
+      allowNull: false
+    }
+  });
 
-      Reviews.associate = (models) => {
-        Reviews.belongsTo(models.Tokens, {
-        foreignKey: 'tokenId',
+  Review.associate = models => {
+    Review.belongsTo(models.Token, {
+      as: 'token',
+      foreignKey: 'tokenId'
     });
   };
 
-  return Reviews;
+  return Review;
 };

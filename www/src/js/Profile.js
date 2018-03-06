@@ -12,7 +12,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { getToken } from './api';
+import { getTokenByName } from './api';
 import Loading from './Loading';
 
 const Navigation = () => {
@@ -43,7 +43,7 @@ class Profile extends Component {
   componentDidMount() {
     const { match: { params: { name: tokenId } } } = this.props;
 
-    getToken(tokenId).then(res => {
+    getTokenByName(tokenId).then(res => {
       this.setState({
         api: res.data,
         loading: false,
@@ -53,7 +53,7 @@ class Profile extends Component {
 
   render() {
     const token = this.state.api;
-    const reviews = token.Reviews || [];
+    const reviews = token.reviews || [];
     const lastReview = reviews[reviews.length - 1] || [];
     const date = new Date(lastReview.createdAt);
     const months = [

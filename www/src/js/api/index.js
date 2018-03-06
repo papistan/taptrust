@@ -17,9 +17,10 @@ export const createToken = payload => getApiClient().post('/tokens', payload);
 
 export const getAllTokens = () => getApiClient().get('/tokens');
 
-export const getToken = tokenId => getApiClient().get(`/tokens/${tokenId}`);
+export const getTokenByName = tokenId =>
+  getApiClient().get(`/tokens/${tokenId}`);
+
+export const createReview = (tokenId, payload) =>
+  getApiClient().post(`/tokens/${tokenId}/reviews`, payload);
 
 export const getReview = reviewId => getApiClient().get(`/reviews/${reviewId}`);
-
-export const createReviewOfToken = (tokenId, payload) =>
-  getApiClient().post(`/tokens/${tokenId}/reviews`, payload);

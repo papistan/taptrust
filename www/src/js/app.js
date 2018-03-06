@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
-import Gallery from './Gallery';
+
+import TokenList from './containers/TokenList';
 import ScrollToTop from './ScrollToTop';
 import ErrorPage from './ErrorPage';
 import Profile from './Profile';
@@ -18,22 +19,20 @@ const App = () => (
     <ScrollToTop>
       <div>
         <Header />
-        <div>
-          <Switch>
-            <Route exact path="/" component={Gallery} />
-            <Route exact path="/tokenform" component={TokenForm} />
-            <Route exact path="/reviewform/:tokenId" component={ReviewForm} />
-            <Route exact path="/:name" component={Profile} />
-            <Route exact path="/:name/reviews" component={AllReviews} />
-            <Route
-              exact
-              path="/:name/reviews/:reviewId"
-              component={ReviewDetail}
-            />
+        <Switch>
+          <Route exact path="/" component={TokenList} />
+          <Route exact path="/tokenform" component={TokenForm} />
+          <Route exact path="/reviewform/:tokenName" component={ReviewForm} />
+          <Route exact path="/:name" component={Profile} />
+          <Route exact path="/:name/reviews" component={AllReviews} />
+          <Route
+            exact
+            path="/:name/reviews/:reviewId"
+            component={ReviewDetail}
+          />
 
-            <Route component={ErrorPage} />
-          </Switch>
-        </div>
+          <Route component={ErrorPage} />
+        </Switch>
       </div>
     </ScrollToTop>
   </BrowserRouter>

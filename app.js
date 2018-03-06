@@ -4,14 +4,12 @@ const express = require('express');
 const http = require('http');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
-const morgan = require('morgan');
 
 // Set up the express app
 const app = express();
 
-//set up CORS for development
+// Set up CORS for development
 app.use(cors());
 
 // Log requests to the console.
@@ -23,9 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Require routes into the application.
 require('./server/routes')(app);
+
 app.get('*', (req, res) =>
   res.status(200).send({
-    message: 'Try a different route.',
+    message: 'Try a different route.'
   })
 );
 
