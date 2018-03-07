@@ -28,10 +28,7 @@ module.exports = (app, passport) => {
   );
   
   // app.get('/signin', authReviewersController.signin);
-  app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/signin'
-  }));
+  app.post('/signin', passport.authenticate('local-signin'), (req, res) =>  res.json({ id: req.user.id, username: req.user.username }));
 
   // app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
 
