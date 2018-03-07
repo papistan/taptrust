@@ -27,3 +27,5 @@ export const createReviewOfToken = (tokenId, payload) =>
 export const signin = payload => axios.post('http://localhost:8000/signin', payload);
 
 export const signup = payload => axios.post('http://localhost:8000/signup', payload);
+
+export const logout = () => axios.get('http://localhost:8000/logout')

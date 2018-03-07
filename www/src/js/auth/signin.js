@@ -27,7 +27,10 @@ class Signin extends Component {
     const { history } = this.props;
     signin( this.state )
       .then((res) => {
-        console.log(res)
+        //  for later use in persistant id state and showing username
+        const { userID } = res.data;
+        const { username } = res.data;
+        
       // Redirect to home page
       history.push('/');
     })
