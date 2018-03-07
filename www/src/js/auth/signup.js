@@ -29,12 +29,11 @@ class Signup extends Component {
     const { history } = this.props;
     signup( this.state )
       .then((res) => {
-      //  for later use in persistant id state and showing username
-        const { userID } = res.data;
-        const { username } = res.data;
-     
         // Redirect to home page
-      history.push('/');
+      history.push({
+        pathname: '/ReviewerDashboard',
+        state: { user: res.data }
+      });
     })
     .catch((error) => {
         console.log(error);

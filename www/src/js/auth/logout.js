@@ -8,19 +8,19 @@ class Logout extends Component {
         super(props);
         this.state = {
           error: ''
-          }
-       };
+        }
+    };
 
     componentDidMount(){
         const { history } = this.props;
         logout( this.state )
         .then(() => {
             // Redirect to home page
-            history.push('signin');
+            history.push('/signin');
         })
         .catch(() => {
-        this.setState({ error: 'Unable to logout: try again' });
-    });
+            this.setState({ error: 'Unable to logout: try again' });
+        });
     }
 
   render(){
