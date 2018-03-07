@@ -23,19 +23,17 @@ module.exports = (app, passport) => {
   app.delete('/api/tokens/:tokenId/reviews/:reviewId', reviewsController.destroy);
 
 // Auth 
-  app.get('/signup', authReviewersController.signup);
-  app.post('/signup', passport.authenticate('local-signup', { 
-    successRedirect: '/dashboard', 
-    failureRedirect: '/signup' 
-  }));
+  // app.get('/signup', authReviewersController.signup);
+  app.post('/signup', passport.authenticate('local-signup'), (req, res) =>  res.json({ id: req.user.id, username: req.user.username })
+  );
   
-  app.get('/signin', authReviewersController.signin);
+  // app.get('/signin', authReviewersController.signin);
   app.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/dashboard',
     failureRedirect: '/signin'
   }));
 
-  app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
+  // app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
 
   app.get('/logout', authReviewersController.logout);
 

@@ -26,7 +26,8 @@ class Signin extends Component {
     event.preventDefault();
     const { history } = this.props;
     signin( this.state )
-      .then(() => {
+      .then((res) => {
+        console.log(res)
       // Redirect to home page
       history.push('/');
     })

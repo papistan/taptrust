@@ -47,6 +47,7 @@ module.exports = (passport, reviewer) => {
                 const data = {
                             email,
                             password: reviewerPassword,
+                            username: req.body.username,
                             firstname: req.body.firstname,
                             lastname: req.body.lastname
                         };

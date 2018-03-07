@@ -28,8 +28,12 @@ class Signup extends Component {
     event.preventDefault();
     const { history } = this.props;
     signup( this.state )
-      .then(() => {
-      // Redirect to home page
+      .then((res) => {
+      //  for later use in persistant id state and showing username
+        const { userID } = res.data;
+        const { username } = res.data;
+     
+        // Redirect to home page
       history.push('/');
     })
     .catch((error) => {
