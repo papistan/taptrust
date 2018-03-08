@@ -28,4 +28,6 @@ export const signin = payload => axios.post('http://localhost:8000/signin', payl
 
 export const signup = payload => axios.post('http://localhost:8000/signup', payload);
 
+export const signedin = () => axios.get('http://localhost:8000/signedin');
+
 export const logout = () => axios.get('http://localhost:8000/logout')

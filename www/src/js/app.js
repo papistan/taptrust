@@ -14,6 +14,7 @@ import Signin from './auth/signin';
 import Signup from './auth/signup';
 import Logout from './auth/logout';
 import ReviewerDashboard from './ReviewerDashboard';
+import PrivateRoute from './PrivateRoute';
 
 import '../css/style.css';
 
@@ -29,7 +30,7 @@ const App = () => (
             <Route exact path="/signin" component={Signin}/>
             <Route exact path="/signup" component={Signup}/>
             <Route exact path="/logout" component={Logout}/>
-            <Route exact path="/reviewerdashboard" component={ReviewerDashboard}/>
+            <PrivateRoute exact path="/reviewerdashboard" component={ReviewerDashboard}/>
             <Route exact path="/reviewform/:tokenId" component={ReviewForm} />
             <Route exact path="/:name" component={Profile} />
             <Route exact path="/:name/reviews" component={AllReviews} />

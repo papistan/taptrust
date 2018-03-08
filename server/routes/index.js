@@ -30,6 +30,7 @@ module.exports = (app, passport) => {
   // app.get('/signin', authReviewersController.signin);
   app.post('/signin', passport.authenticate('local-signin'), (req, res) =>  res.json({ id: req.user.id, username: req.user.username }));
 
+  app.get('/signedin', isLoggedIn, (req, res) =>  res.status(200));
   // app.get('/dashboard', isLoggedIn, authReviewersController.dashboard);
 
   app.get('/logout', authReviewersController.logout);
@@ -38,6 +39,6 @@ module.exports = (app, passport) => {
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('/signin');
+    res.status(400);
   }
 }
