@@ -12,7 +12,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { getToken } from './api';
+import { getTokenByName } from './api';
 import Loading from './Loading';
 
 const Navigation = () => {
@@ -43,7 +43,7 @@ class Profile extends Component {
   componentDidMount() {
     const { match: { params: { name: tokenId } } } = this.props;
 
-    getToken(tokenId).then(res => {
+    getTokenByName(tokenId).then(res => {
       this.setState({
         api: res.data,
         loading: false,
@@ -53,7 +53,7 @@ class Profile extends Component {
 
   render() {
     const token = this.state.api;
-    const reviews = token.Reviews || [];
+    const reviews = token.reviews || [];
     const lastReview = reviews[reviews.length - 1] || [];
     const date = new Date(lastReview.createdAt);
     const months = [
@@ -128,19 +128,30 @@ class Profile extends Component {
                     </p>
                   </span>
 
-                  {token.score_overall > 50 ? (
+                  {token.score_overall > 80 ? (
                     <p style={{ fontSize: '16px', display: 'inline' }}>
                       <Label className="trusted">
                         <Glyphicon glyph="ok-sign" /> Trusted
                       </Label>
                     </p>
                   ) : (
+
+                    token.score_overall > 50 ? (
+                      <p style={{ fontSize: '16px' }}>
+                        <Label className="inline mid-trusted">
+                          <Glyphicon glyph="question-sign" /> Moderate Risk
+                        </Label>
+                      </p>
+                    ) :
+                    (
                     <p style={{ fontSize: '16px', display: 'inline' }}>
                       <Label className="not-trusted">
                         <Glyphicon glyph="remove-sign" /> Not Trusted
                       </Label>
                     </p>
+                    )
                   )}
+
                 </div>
               </Col>
             </Row>
@@ -248,7 +259,7 @@ class Profile extends Component {
               </Row>
               <Row className="flex-no-wrap">
                 <Col sm={12}>
-                  { lastReview.review !== undefined ? 
+                  { lastReview.review !== undefined ?
                     lastReview.review.length > 250 ? (
                     <p style={{ color: 'grey' }}>
                       {lastReview.review.substr(0, 250) + '...'}

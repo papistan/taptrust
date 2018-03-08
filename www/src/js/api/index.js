@@ -17,11 +17,10 @@ export const createToken = payload => getApiClient().post('/tokens', payload);
 
 export const getAllTokens = () => getApiClient().get('/tokens');
 
-export const getToken = tokenId => getApiClient().get(`/tokens/${tokenId}`);
+export const getTokenByName = tokenId =>
+  getApiClient().get(`/tokens/${tokenId}`);
 
-export const getReview = reviewId => getApiClient().get(`/reviews/${reviewId}`);
-
-export const createReviewOfToken = (tokenId, payload) =>
+export const createReview = (tokenId, payload) =>
   getApiClient().post(`/tokens/${tokenId}/reviews`, payload);
 
 export const signin = payload => axios.post('http://localhost:8000/signin', payload);
@@ -31,3 +30,6 @@ export const signup = payload => axios.post('http://localhost:8000/signup', payl
 export const signedin = () => axios.get('http://localhost:8000/signedin');
 
 export const logout = () => axios.get('http://localhost:8000/logout')
+
+export const getReview = reviewId => getApiClient().get(`/reviews/${reviewId}`);
+

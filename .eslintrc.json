@@ -14,7 +14,9 @@
     "sourceType": "module"
   },
   "rules": {
+    "camelcase": "off",
     "constructor-super": "warn",
+    "import/prefer-default-export": "off",
     "jsx-a11y/label-has-for": [
       "error",
       { "required": { "some": ["nesting", "id"] } }
@@ -24,6 +26,8 @@
     "no-undef": "warn",
     "no-unreachable": "warn",
     "no-unused-vars": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "react/prop-types": [
       "error",

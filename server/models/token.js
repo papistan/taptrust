@@ -1,46 +1,46 @@
-//'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Tokens = sequelize.define('Tokens', {
+  const Token = sequelize.define('Token', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false
     },
     age: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     symbol: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     website: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     founders: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     score_overall: DataTypes.INTEGER,
     score_transparency: DataTypes.INTEGER,
     score_governance: DataTypes.INTEGER,
     score_legal: DataTypes.INTEGER,
-    score_functionality: DataTypes.INTEGER,
+    score_functionality: DataTypes.INTEGER
   });
-   
-  Tokens.associate = (models) => {
-    Tokens.hasMany(models.Reviews, {
-      foreignKey: 'tokenId',
+
+  Token.associate = models => {
+    Token.hasMany(models.Review, {
+      as: 'reviews',
+      foreignKey: 'tokenId'
     });
   };
-  
-  return Tokens;
+
+  return Token;
 };
